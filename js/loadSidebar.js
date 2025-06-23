@@ -17,19 +17,16 @@ function initOfferSidebar() {
     });
   });
 
-
   window.closeOffer = function () {
-  offerSidebar.classList.remove("show");
-  overlay.classList.add("hidden");
-  setTimeout(() => {
-    offerSidebar.classList.add("hidden");
-  }, 300);
-};
+    offerSidebar.classList.remove("show");
+    overlay.classList.add("hidden");
+    setTimeout(() => {
+      offerSidebar.classList.add("hidden");
+    }, 300);
+  };
 
   document.getElementById("closeOfferBtn").addEventListener("click", closeOffer);
-  overlay.addEventListener("click", closeOffer); // ✅ NOW it’s safe here
-
-
+  overlay.addEventListener("click", closeOffer);
 
   window.nextStep = function () {
     if (currentStep === 0) fillSummary();
@@ -54,7 +51,8 @@ function initOfferSidebar() {
 
   function fillSummary() {
     const summary = document.getElementById("summary");
-    const formData = new FormData(document.getElementById("offerForm"));
+    const form = document.querySelector('form[name="offer"]');
+    const formData = new FormData(form);
     let html = "<ul>";
     for (let [key, value] of formData.entries()) {
       html += `<li><strong>${key}:</strong> ${value}</li>`;
@@ -63,31 +61,7 @@ function initOfferSidebar() {
     summary.innerHTML = html;
   }
 
-  document.getElementById("offerForm")?.addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    const form = this;
-    const formData = new FormData(form);
-
-    fetch("backend/submit_offer.php", {
-      method: "POST",
-      body: formData,
-    })
-      .then(res => res.text())
-      .then(response => {
-        if (response.trim() === "success") {
-          form.style.display = "none";
-          document.querySelector(".success-message").style.display = "block";
-        } else {
-          alert("❌ Something went wrong. Please try again.");
-        }
-      })
-      .catch(error => {
-        alert("❌ Network error. Please try again.");
-        console.error(error);
-      });
-  });
-
+  // Removed manual JS submission for Netlify to work
 
   document.querySelectorAll('input[name="productType"]').forEach(radio => {
     radio.addEventListener("change", (e) => {
