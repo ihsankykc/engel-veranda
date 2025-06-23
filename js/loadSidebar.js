@@ -61,8 +61,6 @@ function initOfferSidebar() {
     summary.innerHTML = html;
   }
 
-  // Removed manual JS submission for Netlify to work
-
   document.querySelectorAll('input[name="productType"]').forEach(radio => {
     radio.addEventListener("change", (e) => {
       document.querySelectorAll(".conditional").forEach(div => div.classList.add("hidden"));
