@@ -1,0 +1,166 @@
+
+<!-- offerSidebar.html -->
+<div id="offerSidebar" class="offer-sidebar hidden">
+  <div class="form-container">
+    <button id="closeOfferBtn" style="position:absolute;top:10px;right:15px;">✕</button>
+    <form id="offerForm" action="backend/submit_offer.php" method="POST" enctype="multipart/form-data">
+      <!-- LOADED VERSION: v5 -->
+
+
+      <!-- Step 1: Product Info -->
+      <div class="form-step active" id="step1">
+        <h2>1. Product Information</h2>
+        <label class="section-label">Product Type</label><br/>
+        <label><input type="radio" name="productType" value="veranda" required> Aluminium Veranda</label><br/>
+        <label><input type="radio" name="productType" value="glass"> Glass Sliding Walls</label><br/>
+        <label><input type="radio" name="productType" value="other"> Other</label><br/><br/>
+
+        <!-- Veranda Options -->
+        <div id="verandaOptions" class="conditional hidden">
+          <h3>Aluminium Veranda Options</h3>
+          <label for="verandaType" class="section-label">Select Veranda Type</label>
+          <select name="verandaType" id="verandaType" required>
+            <option value="" disabled selected>Select an option</option>
+            <option value="optimum">Optimum</option>
+            <option value="premium">Premium</option>
+            <option value="luxe">Luxe Line</option>
+          </select>
+
+          <!-- Wideness -->
+             <label class="section-label">Wideness</label>
+            <select name="width" required>
+              <option value="<300cm">&lt;300 cm</option>
+              <option value="300–400cm">300–400 cm</option>
+              <option value="400–500cm">400–500 cm</option>
+              <option value="500–600cm">500–600 cm</option>
+              <option value="600–700cm">600–700 cm</option>
+              <option value="700–800cm">700–800 cm</option>
+              <option value="800–900cm">800–900 cm</option>
+              <option value="900–1000cm">900–1000 cm</option>
+              <option value="1000–1100cm">1000–1100 cm</option>
+              <option value="1100–1200cm">1100–1200 cm</option>
+            </select>
+
+             <!-- Depth -->
+            <label class="section-label">Depth</label>
+            <select name="depth" required>
+              <option value="250cm">250 cm</option>
+              <option value="300cm">300 cm</option>
+              <option value="350cm">350 cm</option>
+              <option value="400cm">400 cm</option>
+              <option value="450cm">450 cm</option>
+              <option value="500cm">500 cm</option>
+            </select>
+
+            <!-- Color -->
+            <label class="section-label">Color</label>
+            <label><input type="radio" name="color" value="Black" required> Black</label><br/>
+            <label><input type="radio" name="color" value="White"> White</label><br/>
+            <label><input type="radio" name="color" value="Anthracite"> Anthracite</label>
+
+            <label class="section-label">Ceiling</label>
+            <label><input type="radio" name="ceiling" value="Policarbon Bright" required> Policarbon Bright</label><br/>
+            <label><input type="radio" name="ceiling" value="Policarbon Shaded"> Policarbon Shaded</label><br/>
+            <label><input type="radio" name="ceiling" value="Glass"> Glass</label>
+
+            <label class="section-label">Front Side</label>
+            <label><input type="radio" name="frontside" value="Glass Sliding Door" required> Glass Sliding Door</label><br/>
+            <label><input type="radio" name="frontside" value="Locked Glass Systems"> Locked Glass Systems</label>
+
+            <label class="section-label">Left Side</label>
+            <label><input type="radio" name="leftside" value="Sandwich Panel" required> Sandwich Panel</label><br/>
+            <label><input type="radio" name="leftside" value="Glass"> Glass</label><br/>
+            <label><input type="radio" name="leftside" value="Policarbon"> Policarbon</label>
+
+            <label class="section-label">Right Side</label>
+            <label><input type="radio" name="rightside" value="Sandwich Panel" required> Sandwich Panel</label><br/>
+            <label><input type="radio" name="rightside" value="Glass"> Glass</label><br/>
+            <label><input type="radio" name="rightside" value="Policarbon"> Policarbon</label>
+
+            <label class="section-label">Spie Left Side</label>
+            <label><input type="radio" name="spieLeft" value="Policarbon" required> Policarbon</label><br/>
+            <label><input type="radio" name="spieLeft" value="Sandwich Panel"> Sandwich Panel</label><br/>
+            <label><input type="radio" name="spieLeft" value="Spie Glass"> Spie Glass</label>
+
+            <label class="section-label">Spie Right Side</label>
+            <label><input type="radio" name="spieRight" value="Policarbon" required> Policarbon</label><br/>
+            <label><input type="radio" name="spieRight" value="Sandwich Panel"> Sandwich Panel</label><br/>
+            <label><input type="radio" name="spieRight" value="Spie Glass"> Spie Glass</label>
+
+            <label class="section-label">Lighting</label>
+            <label><input type="radio" name="lighting" value="LED Inbouwspots" required> LED Inbouwspots</label><br/>
+            <label><input type="radio" name="lighting" value="LED Lighting with Dimbaar"> LED Lighting with Dimbaar</label>
+          
+        </div>
+
+        <!-- Glass Options -->
+         <div id="glassOptions" class="conditional hidden">
+          <label class="section-label">Type of Glass</label>
+          <label><input type="checkbox" name="glassType" value="Tempered"> Tempered</label><br/>
+          <label><input type="checkbox" name="glassType" value="Double Glazing"> Double Glazing</label>
+
+          <label class="section-label">Width</label>
+          <label><input type="radio" name="glassWidth" value="<300cm">&lt;300 cm</label><br/>
+          <label><input type="radio" name="glassWidth" value="300–400cm"> 300 tot 400 CM</label><br/>
+          <label><input type="radio" name="glassWidth" value="400–500cm"> 400 tot 500 CM</label><br/>
+          <label><input type="radio" name="glassWidth" value="500–600cm"> 500 tot 600 CM</label><br/>
+          <label><input type="radio" name="glassWidth" value="600–700cm"> 600 tot 700 CM</label><br/>
+          <label><input type="radio" name="glassWidth" value="700–800cm"> 700 tot 800 CM</label><br/>
+          <label><input type="radio" name="glassWidth" value="800–900cm"> 800 tot 900 CM</label><br/>
+          <label><input type="radio" name="glassWidth" value="900–1000cm"> 900 tot 1000 CM</label><br/>
+          <label><input type="radio" name="glassWidth" value="1000–1100cm"> 1000 tot 1100 CM</label><br/>
+          <label><input type="radio" name="glassWidth" value="1100–1200cm"> 1100 tot 1200 CM</label><br/>
+          <label><input type="radio" name="glassWidth" value="1200–1300cm"> 1200 tot 1300 CM</label><br/>
+          </div>
+
+        <!-- Other Options -->
+        <div id="otherOptions" class="conditional hidden">
+          <label class="section-label">Describe your request</label>
+          <textarea name="customMessage" rows="5"></textarea>
+          </div>
+
+        <label class="section-label">Upload Images</label>
+        <input type="file" name="photos" multiple><br/><br/>
+
+        <button type="button" class="button primary" onclick="nextStep()">Next</button>
+      </div>
+
+      <!-- Step 2: Contact Info -->
+      <div class="form-step" id="step2">
+        <h2>2. Contact Information</h2>
+        <label>Name</label>
+        <input type="text" name="name" required><br/>
+        <label>Email</label>
+        <input type="email" name="email" required><br/>
+        <label>Phone</label>
+        <input type="tel" name="phone"><br/>
+        <label>House Number and Street</label>
+        <input type="text" name="streetAddress" required><br/>
+        <label>PostCode and City</label>
+        <input type="text" name="postcodeCity" required><br/>
+        <div class="form-nav">
+          <button type="button" class="button primary" onclick="prevStep()">Back</button>
+          <button type="button" class="button primary" onclick="nextStep()">Next</button>
+        </div>
+      </div>
+
+      <!-- Step 3: Confirm -->
+      <div class="form-step" id="step3">
+        <h2>3. Confirm Your Request</h2>
+        <div id="summary"></div>
+        <div class="form-nav">
+          <button type="button" class="button primary" onclick="prevStep()">Back</button>
+          <button type="submit" class="button primary">Submit</button>
+        </div>
+      </div>
+    </form>
+
+    <div class="success-message" style="display: none;">
+      <h2>Thank you!</h2>
+      <p>Your request has been submitted. We'll get back to you shortly.</p>
+    </div>
+  </div>
+</div>
+
+<div id="overlay" class="overlay hidden"></div>
+

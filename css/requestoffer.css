@@ -1,0 +1,147 @@
+#offerSidebar .form-container {
+  max-width: 700px;
+  height: 80vh; /* Make it fixed-height */
+  overflow-y: auto; /* Scroll inside container */
+  margin: auto;
+  padding: 2rem;
+  background: #f5f0e6;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);  border-radius: 12px;
+  position: relative;
+  z-index: 10;
+  background: #f5f0e6;
+
+}
+
+#offerSidebar main {
+  padding-top: 13em; /* create space below the fixed navbar */
+}
+
+#offerSidebar h1, #offerSidebar h2 {
+  color: #2c2c2c;
+}
+
+#offerSidebar h3 {
+  color: #222; /* or use #333 for slightly softer black */
+  margin-top: 2rem;
+  font-size: 1.25rem;
+}
+
+#offerSidebar /* Optional: Make the whole form section centered and fixed */
+.contact-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden; /* Prevent page scrolling */
+  background: #f5f0e6;
+}
+
+#offerSidebar .form-step {
+  display: none;
+}
+
+#offerSidebar .form-step.active {
+  display: block;
+}
+
+#offerSidebar .conditional.hidden {
+  display: none;
+}
+
+#offerSidebar label {
+  font-weight: bold;
+  display: block;
+  margin-top: 1rem;
+}
+
+#offerSidebar input[type="text"], #offerSidebar input[type="email"], #offerSidebar input[type="tel"], #offerSidebar textarea, #offerSidebar input[type="file"] {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+#offerSidebar button {
+  margin-top: 1.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #4a3aff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#offerSidebar button:hover {
+  background-color: #372acc;
+}
+
+#offerSidebar .form-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+#offerSidebar .success-message {
+  background-color: #e6ffe6;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+#offerSidebar /* Ensure radio and checkbox labels are readable */
+input[type="radio"], #offerSidebar input[type="checkbox"] {
+  accent-color: #4a3aff;
+  margin-right: 0.5rem;
+}
+
+#offerSidebar label {
+  color: #333;
+  display: inline-block;
+  margin-top: 0.5rem;
+}
+
+#offerSidebar /* Bold label headers like 'Product Type' */
+.section-label {
+  display: block;
+  margin-top: 1.5rem;
+  font-weight: bold;
+  color: #222;
+  font-size: 1rem;
+}
+
+#offerSidebar /* === STEP 1: Responsive layout for form elements === */
+.form-container form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+#offerSidebar .form-container form > * {
+  flex: 1 1 100%;
+}
+
+#offerSidebar select {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.25rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 1rem;
+  background-color: #fff;
+  color: #333;
+}
+
+@media (min-width: 768px) {
+  #offerSidebar .form-container form > label,
+  #offerSidebar .form-container form > input,
+  #offerSidebar .form-container form > select,
+  #offerSidebar .form-container form > textarea {
+    flex: 1 1 calc(50% - 1.25rem);
+  }
+
+  #offerSidebar .form-container form > textarea {
+    flex-basis: 100%;
+  }
+}
