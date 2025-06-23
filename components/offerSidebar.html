@@ -3,8 +3,9 @@
 <div id="offerSidebar" class="offer-sidebar hidden">
   <div class="form-container">
     <button id="closeOfferBtn" style="position:absolute;top:10px;right:15px;">✕</button>
-    <form id="offerForm" action="backend/submit_offer.php" method="POST" enctype="multipart/form-data">
-      <!-- LOADED VERSION: v5 -->
+    <form name="offer" method="POST" enctype="multipart/form-data" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="offer">
+      <input type="hidden" name="bot-field">      <!-- LOADED VERSION: v5 -->
 
 
       <!-- Step 1: Product Info -->
