@@ -53,14 +53,41 @@
             <li><a href="glass_systems.html">Glass Systems</a></li>
           </ul>
         </nav>
+
+        <h4 class="sidebar-subtopic">Polycarbonate Roof</h4>
+        <div class="image-bundle">
+            <img src="glass_img/polycarbonate3.jpg" alt="Photo 1" onclick="openLightbox(this.src)">
+            <img src="glass_img/polycarbonate2.jpg" alt="Photo 2" onclick="openLightbox(this.src)">
+            <img src="glass_img/polycarbonate1.jpg" alt="Photo 3" onclick="openLightbox(this.src)">
+            <img src="glass_img/polycarbonate5.jpg" alt="Photo 4" onclick="openLightbox(this.src)">
+        </div>
+
+        <h4 class="sidebar-subtopic">Glass Roof</h4>
+        <div class="image-bundle">
+            <img src="glass_img/glass_roof.jpg" alt="Photo 1" onclick="openLightbox(this.src)">
+            <img src="glass_img/glass_roof2.jpg" alt="Photo 2" onclick="openLightbox(this.src)">
+            <img src="glass_img/glass_roof3.jpg" alt="Photo 3" onclick="openLightbox(this.src)">
+            <img src="glass_img/glass_roof4.jpg" alt="Photo 4" onclick="openLightbox(this.src)">
+        </div>
+
+        <h4 class="sidebar-subtopic">Options</h4>
+        <div class="image-bundle">
+            <img src="glass_img/sandwich_panel1.jpg" alt="Photo 1" onclick="openLightbox(this.src)">
+            <img src="glass_img/sandwich_panel2.jpg" alt="Photo 2" onclick="openLightbox(this.src)">
+            <img src="glass_img/sandwich_panel3.jpg" alt="Photo 3" onclick="openLightbox(this.src)">
+            <img src="glass_img/sandwich_panel4.jpg" alt="Photo 4" onclick="openLightbox(this.src)">
+        </div>
+
       </aside>
 
       <!-- Content -->
       <section style="flex: 3;">
         <h1 class="section-heading">Optimum Veranda</h1>
         <p style="font-size: 1.1rem; line-height: 1.7; margin-bottom: 2em;">
-          The Optimum Veranda is our most cost-effective and functional solution. Designed to provide essential weather protection without compromising style, it features durable aluminium frames, high-quality polycarbonate or glass roofing, and streamlined construction. Ideal for homeowners seeking elegance on a budget.
+          The Optimum Veranda is the perfect entry-level solution for those who seek quality without compromise. Crafted from high-grade, 2 mm thick aluminum, it offers a robust and dependable structure that stands the test of time. What sets it apart is the double-reinforced gutter, enhancing both stability and longevity—ideal for long-term use in all weather conditions.
         </p>
+
+        <p>This model is capable of supporting a polycarbonate roof up to 8 meters wide or a glass roof up to 3.5 meters, making it one of the most versatile verandas in its class. Whether you're looking for a sleek look or something more traditional, the Optimum series comes in elegant style</p>
 
       <div class="container">
           <img src="img/product_optimum_img.png" alt="veranda photo">
@@ -69,7 +96,8 @@
       <div class="container">
           <img src="img/product_optimum2_img.png" alt="veranda photo">
       </div>
-      
+      <p>To make installation faster and easier, every Optimum veranda comes pre-fitted with essential components. This includes all necessary rubber seals, integrated LED lighting, and matching screws — so your veranda is nearly ready from the moment it’s delivered.</p>
+      <p>Reliable, customizable, and smartly engineered, the Optimum series offers everything you need to extend your living space with confidence and style.</p>
       <div class="container">
           <img src="img/product_optimum3_img.jpg" alt="veranda photo">
       </div>
@@ -105,5 +133,30 @@
 
 <div id="sidebarContainer"></div><script src="js/loadSidebar.js"></script></body>
 
+
+    <!-- Lightbox Script -->
+    <script>
+    function openLightbox(src) {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    lightboxImg.src = src;
+    lightbox.style.display = 'flex';
+    }
+
+    function closeLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    lightbox.style.display = 'none';
+    lightboxImg.src = '';
+    }
+
+    document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeLightbox();
+    });
+    </script>
+<!-- Lightbox Modal HTML -->
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" src="" alt="Full Size">
+</div>
 </body>
 </html>

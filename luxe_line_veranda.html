@@ -53,6 +53,32 @@
             <li><a href="glass_systems.html">Glass Systems</a></li>
           </ul>
         </nav>
+
+        
+        <h4 class="sidebar-subtopic">Polycarbonate Roof</h4>
+        <div class="image-bundle">
+            <img src="glass_img/polycarbonate3.jpg" alt="Photo 1" onclick="openLightbox(this.src)">
+            <img src="glass_img/polycarbonate2.jpg" alt="Photo 2" onclick="openLightbox(this.src)">
+            <img src="glass_img/polycarbonate1.jpg" alt="Photo 3" onclick="openLightbox(this.src)">
+            <img src="glass_img/polycarbonate5.jpg" alt="Photo 4" onclick="openLightbox(this.src)">
+        </div>
+
+        <h4 class="sidebar-subtopic">Glass Roof</h4>
+        <div class="image-bundle">
+            <img src="glass_img/glass_roof.jpg" alt="Photo 1" onclick="openLightbox(this.src)">
+            <img src="glass_img/glass_roof2.jpg" alt="Photo 2" onclick="openLightbox(this.src)">
+            <img src="glass_img/glass_roof3.jpg" alt="Photo 3" onclick="openLightbox(this.src)">
+            <img src="glass_img/glass_roof4.jpg" alt="Photo 4" onclick="openLightbox(this.src)">
+        </div>
+
+        <h4 class="sidebar-subtopic">Options</h4>
+        <div class="image-bundle">
+            <img src="glass_img/sandwich_panel1.jpg" alt="Photo 1" onclick="openLightbox(this.src)">
+            <img src="glass_img/sandwich_panel2.jpg" alt="Photo 2" onclick="openLightbox(this.src)">
+            <img src="glass_img/sandwich_panel3.jpg" alt="Photo 3" onclick="openLightbox(this.src)">
+            <img src="glass_img/sandwich_panel4.jpg" alt="Photo 4" onclick="openLightbox(this.src)">
+        </div>
+
       </aside>
 
       <!-- Content -->
@@ -102,4 +128,28 @@
   </footer>
 </body>
 <div id="sidebarContainer"></div><script src="js/loadSidebar.js"></script></body>
+ <!-- Lightbox Script -->
+    <script>
+    function openLightbox(src) {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    lightboxImg.src = src;
+    lightbox.style.display = 'flex';
+    }
+
+    function closeLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    lightbox.style.display = 'none';
+    lightboxImg.src = '';
+    }
+
+    document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeLightbox();
+    });
+    </script>
+<!-- Lightbox Modal HTML -->
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" src="" alt="Full Size">
+</div>
 </html>
