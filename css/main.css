@@ -243,7 +243,7 @@ img {
 }
 
 .avatar {
-  background-color: var(--primary-color);
+  background-color: #333;
   color: white;
   border-radius: 50%;
   width: 45px;
@@ -671,12 +671,17 @@ textarea {
   background: #F1E9D2;
   border-radius: 12px;
   padding: 2rem;
+   display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .essential-item img {
   width: 60px;
   height: auto;
   margin-bottom: 1.5rem;
+  justify-content: center;
 }
 
 .essential-item h3 {
@@ -689,4 +694,50 @@ textarea {
   font-size: 0.95rem;
   color: #333;
   line-height: 1.6;
+}
+
+.carousel-wrapper {
+  position: relative;
+  overflow: hidden;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: max-content; /* allow it to grow naturally */
+  scroll-snap-type: x mandatory;
+
+}
+
+.review-card {
+  flex: 0 0 calc(33.3333% - 2rem); /* make room for spacing */
+  margin: 0 1rem; /* space between cards */
+  box-sizing: border-box;
+  padding: 1.5em;
+  scroll-snap-align: start;
+
+}
+
+.carousel-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+  font-size: 1.2em;
+  cursor: pointer;
+  padding: 0.2em 0.6em;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.carousel-nav.left {
+  left: 0;
+}
+
+.carousel-nav.right {
+  right: 0;
 }

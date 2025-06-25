@@ -116,61 +116,125 @@
     <section class="client-reviews">
       <div class="reviews-intro">
         <h2 class="section-heading">What Our Clients Say</h2>
-        <p>Real stories from customers who transformed their homes with us.</p>
+        <p>Feedback from customers who transformed their homes with us.</p>
       </div>
-      <div class="reviews-list">
-        <div class="review-card">
-          <div class="review-header">
-            <div class="avatar">A</div>
-            <div><strong>Ayşe K.</strong><br><small>İstanbul</small></div>
+
+      <div class="carousel-wrapper">
+        <button class="carousel-nav left" onclick="slideCarousel(-1)">‹</button>
+
+        <div class="carousel-track" id="reviewCarousel">
+          <!-- Repeat this block for 6 clients -->
+          <div class="review-card">
+            <div class="review-header">
+              <div class="avatar">A</div>
+              <div><strong>Ayşe K.</strong><br><small>İstanbul</small></div>
+            </div>
+            <div class="review-stars">★★★★★</div>
+            <blockquote>Engel Veranda sayesinde bahçemiz artık yılın her günü kullanılabilir. Hem estetik hem çok işlevsel. Teşekkürler!</blockquote>
           </div>
-          <div class="review-stars">★★★★★</div>
-          <blockquote>Engel Veranda sayesinde bahçemiz artık yılın her günü kullanılabilir. Hem estetik hem çok işlevsel. Teşekkürler!”</blockquote>
-        </div>
-        <div class="review-card">
-          <div class="review-header">
-            <div class="avatar">M</div>
-            <div><strong>Michael D.</strong><br><small>Berlin</small></div>
+
+          <div class="review-card">
+            <div class="review-header">
+              <div class="avatar">M</div>
+              <div><strong>Michael D.</strong><br><small>Berlin</small></div>
+            </div>
+            <div class="review-stars">★★★★★</div>
+            <blockquote>“Our veranda became the heart of our home. The craftsmanship and service were beyond expectations.”</blockquote>
           </div>
-          <div class="review-stars">★★★★★</div>
-          <blockquote>“Our veranda became the heart of our home. The craftsmanship and service were beyond expectations.”</blockquote>
+
+          <div class="review-card">
+            <div class="review-header">
+              <div class="avatar">L</div>
+              <div><strong>Laura P.</strong><br><small>Amsterdam</small></div>
+            </div>
+            <div class="review-stars">★★★★★</div>
+            <blockquote>We’re so happy with the end result. Beautiful and solid workmanship!</blockquote>
+          </div>
+
+          <div class="review-card">
+            <div class="review-header">
+              <div class="avatar">T</div>
+              <div><strong>Thomas R.</strong><br><small>Brussels</small></div>
+            </div>
+            <div class="review-stars">★★★★★</div>
+            <blockquote>The team was professional, responsive, and skilled. Highly recommend Engel Veranda!</blockquote>
+          </div>
+
+          <div class="review-card">
+            <div class="review-header">
+              <div class="avatar">S</div>
+              <div><strong>Sofie W.</strong><br><small>Utrecht</small></div>
+            </div>
+            <div class="review-stars">★★★★★</div>
+            <blockquote>From consultation to completion — everything went smoothly.</blockquote>
+          </div>
+
+          <div class="review-card">
+            <div class="review-header">
+              <div class="avatar">J</div>
+              <div><strong>Jeroen K.</strong><br><small>Rotterdam</small></div>
+            </div>
+            <div class="review-stars">★★★★★</div>
+            <blockquote>Outstanding quality and great after-service. Thank you!</blockquote>
+          </div>
         </div>
+
+        <button class="carousel-nav right" onclick="slideCarousel(1)">›</button>
       </div>
     </section>
+
   </main>
 
   <footer class="site-footer">
     <div class="footer-wrapper">
-      <div class="footer-logo">
-        <h3>Safran Varenda</h3>
-        <p>Custom verandas, garden rooms, and outdoor solutions — where craftsmanship meets elegance.</p>
-      </div>
-      <div class="footer-links">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="aboutus.html">About Us</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="possibilities.html">Possibilities</a></li>
-          <li><a href="requestoffer.html">Request an Offer</a></li>
-        </ul>
-      </div>
-      <div class="footer-contact">
-        <h4>Contact</h4>
-        <p>Email: info@safranvarenda.com</p>
-        <p>Phone: +123 456 7890</p>
-        <p>Location: Your City, Country</p>
-      </div>
+        <div class="footer-logo">
+            <h3>Engel Varenda</h3>
+            <p>Custom verandas, garden rooms, and outdoor solutions — where craftsmanship meets elegance.</p>
+        </div>
+        <div class="footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-contact">
+            <h4>Contact</h4>
+            <p>Email: info@engel-varenda.com</p>
+            <p>Phone: +123 456 7890</p>
+            <p>Location: Eindhoven, Netherlands</p>
+        </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2025 Safran Varenda. All rights reserved.</p>
+        <p>© 2025 Engel Varenda. All rights reserved.</p>
     </div>
-  </footer>
+</footer>
+
 
   <div id="popupContainer"></div>
 
   <div id="sidebarContainer"></div>
   <script src="js/loadSidebar.js"></script>
+
+  <script>
+  let currentIndex = 0;
+    function slideCarousel(direction) {
+      const track = document.getElementById('reviewCarousel');
+      const wrapper = document.querySelector('.carousel-wrapper');
+      const cardWidth = wrapper.offsetWidth;
+      const maxIndex = Math.ceil(track.children.length / 3) - 1;
+
+      currentIndex += direction;
+      if (currentIndex < 0) currentIndex = 0;
+      if (currentIndex > maxIndex) currentIndex = maxIndex;
+
+      track.style.transform = `translateX(-${cardWidth * currentIndex}px)`;
+    }
+
+</script>
 
 </body>
 </html>
