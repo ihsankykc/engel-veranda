@@ -651,3 +651,42 @@ textarea {
   display: block;
   opacity: 1;
 }
+
+.essentials {
+  background: #ffffff;
+  padding: 5em 2em;
+  text-align: center;
+}
+
+.essentials-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-bottom: 2em;
+}
+
+.essential-item {
+  background: #F1E9D2;
+  border-radius: 12px;
+  padding: 2rem;
+}
+
+.essential-item img {
+  width: 60px;
+  height: auto;
+  margin-bottom: 1.5rem;
+}
+
+.essential-item h3 {
+  color: var(--primary-color);
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.essential-item p {
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.6;
+}
