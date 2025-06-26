@@ -36,14 +36,21 @@ function initOfferSidebar() {
     }
 
     if (currentStep === 1) {
-      const form = document.querySelector('form[name="offer"]'); // ADD THIS LINE
+      const form = document.querySelector('form[name="offer"]');
       const activeFormSection = document.querySelector(".form-step.active .form-section:not(.hidden)");
-      const data = new FormData(activeFormSection || form);
       const config = {};
-      data.forEach((v, k) => config[k] = v);
+      const inputs = (activeFormSection || form).querySelectorAll("input, select, textarea");
+
+      inputs.forEach(el => {
+        if (!el.name) return;
+        if ((el.type === "radio" || el.type === "checkbox") && !el.checked) return;
+        config[el.name] = el.value;
+      });
+
       cart.push(config);
       renderCartSummary();
     }
+
 
     if (currentStep < 3) showStep(currentStep + 1);
   }
