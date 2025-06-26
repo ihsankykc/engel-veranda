@@ -125,12 +125,28 @@ inputs.forEach(el => {
     if (productType === "other") document.getElementById("otherOptions")?.classList.remove("hidden");
   }
 
-  // Hook up buttons and radios
   document.querySelectorAll('input[name="productType"]').forEach(radio => {
     radio.addEventListener("change", e => {
-      selectedProduct = e.target.value;
-      showConfigOptions(selectedProduct);
-      nextStep(); // Automatically move to config step
+      const selected = e.target.value;
+
+      // Hide and disable all conditional fields
+      document.querySelectorAll(".conditional").forEach(div => {
+        div.classList.add("hidden");
+        div.querySelectorAll("input, select, textarea").forEach(input => {
+          input.disabled = true;
+        });
+      });
+
+      // Show and enable the selected section
+      const active = document.getElementById(selected + "Options");
+      if (active) {
+        active.classList.remove("hidden");
+        active.querySelectorAll("input, select, textarea").forEach(input => {
+          input.disabled = false;
+        });
+      }
+
+      nextStep(); // if you're auto-stepping
     });
   });
 
