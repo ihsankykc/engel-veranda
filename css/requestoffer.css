@@ -71,7 +71,7 @@
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(74, 58, 255, 0.2);
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 
@@ -138,6 +138,31 @@ input[type="radio"], #offerSidebar input[type="checkbox"] {
   color: #333;
 }
 
+#offerSidebar .form-header {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+#offerSidebar #cartJumpBtn,
+#offerSidebar #closeOfferBtn {
+  position: absolute;
+  top: 1rem;
+  z-index: 100;
+  padding: 0.5rem 0.8rem;
+  background: linear-gradient(135deg, #4a3aff, #6a5bff);
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+}
+
+#offerSidebar #closeOfferBtn {
+  right: 1rem;
+}
+
+#offerSidebar #cartJumpBtn {
+  right: 4rem;
+}
 #summary {
   color: #222 !important;
 }

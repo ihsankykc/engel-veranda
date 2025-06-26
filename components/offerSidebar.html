@@ -1,17 +1,18 @@
 
 <div id="offerSidebar" class="offer-sidebar hidden">
   <div class="form-container">
-    <button id="closeOfferBtn" style="position:absolute;top:10px;right:15px;">✕</button>
-    <button id="cartJumpBtn" title="View Cart" style="position:absolute;top:10px;right:60px;">🛒</button>
+    <button id="cartJumpBtn" title="View Cart">🛒</button>
+    <button id="closeOfferBtn">✕</button>
     
-    <form name="offer" method="POST" data-netlify="true" enctype="multipart/form-data" netlify-honeypot="bot-field">
+    <form name="offer" method="POST" data-netlify="true" enctype="multipart/form-data" >
       <input type="hidden" name="form-name" value="offer">
-      <input type="hidden" name="bot-field">
       <input type="hidden" name="cartData" id="cartDataField">
 
       <!-- STEP 1: Product Selection -->
       <div class="form-step active" id="step1">
-        <h2>1. Choose a Product</h2>
+        <div class="form-header">
+          <h2>1. Choose a Product</h2>
+        </div>
         <label><input type="radio" name="productType" value="veranda" required> Aluminium Veranda</label><br/>
         <label><input type="radio" name="productType" value="glass"> Glass Sliding Walls</label><br/>
         <label><input type="radio" name="productType" value="other"> Other</label><br/>
@@ -20,7 +21,9 @@
 
       <!-- STEP 2: Product Configuration (conditional) -->
       <div class="form-step" id="step2">
-        <h2>2. Configure Your Product</h2>
+        <div class="form-header">
+          <h2>2. Configure Your Product</h2>
+        </div>
 
         <div id="verandaOptions" class="conditional hidden form-section">
           <label>Veranda Type</label>
@@ -134,22 +137,65 @@
 
       <!-- STEP 3: Cart Summary -->
       <div class="form-step" id="step3">
-        <h2>3. Review Your Cart</h2>
+        <div class="form-header">
+          <h2>3. Review Your Cart</h2>
+        </div>
         <div id="summary"></div>
         <button type="button" class="button primary" onclick="prevStep()">Back</button>
         <button type="button" class="button primary" onclick="nextStep()">Next</button>
       </div>
 
       <!-- STEP 4: Contact Info -->
-      <div class="form-step" id="step4">
+    <div class="form-step" id="step4">
+      <div class="form-header">
         <h2>4. Contact Information</h2>
-        <label>Name</label><input type="text" name="name" required>
-        <label>Email</label><input type="email" name="email" required>
-        <label>Phone</label><input type="tel" name="phone">
-        <label>Address</label><input type="text" name="address">
+      </div>
+
+      <label>Name</label>
+      <input type="text" name="name" required>
+
+      <label>Email</label>
+      <input type="email" name="email" required>
+
+      <label>Phone</label>
+      <div style="display: flex; gap: 0.5em;">
+        <select name="countryCode" required style="max-width: 110px;">
+          <option value="+31">🇳🇱 +31 (NL)</option>
+          <option value="+49">🇩🇪 +49 (DE)</option>
+          <option value="+32">🇧🇪 +32 (BE)</option>
+          <option value="+33">🇫🇷 +33 (FR)</option>
+          <option value="+44">🇬🇧 +44 (UK)</option>
+        </select>
+        <input type="tel" name="phone" placeholder="612345678" required style="flex: 1;">
+      </div>
+
+      <label>Country</label>
+      <select name="addressCountry" required>
+        <option value="Netherlands">Netherlands</option>
+        <option value="Belgium">Belgium</option>
+        <option value="Germany">Germany</option>
+        <option value="France">France</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <label>Postcode</label>
+      <input type="text" name="postcode" required>
+
+      <label>House Number</label>
+      <input type="text" name="houseNumber" required>
+
+      <label>Street</label>
+      <input type="text" name="street" required>
+
+      <label>City</label>
+      <input type="text" name="city" required>
+
+      <div class="form-nav">
         <button type="button" class="button primary" onclick="prevStep()">Back</button>
         <button type="submit" class="button primary">Submit</button>
       </div>
+    </div>
+
     </form>
   </div>
 </div>
