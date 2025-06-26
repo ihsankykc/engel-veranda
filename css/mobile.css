@@ -1,0 +1,92 @@
+
+/* === Mobile Responsiveness === */
+@media (max-width: 768px) {
+
+  .site-header {
+    flex-direction: column;
+    height: auto;
+    padding: 1em;
+  }
+
+  .logo img {
+    max-height: 80px;
+  }
+
+  .site-nav {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    display: none;
+    background-color: var(--text-color);
+    padding: 1em 0;
+  }
+
+  .nav-links li a {
+    padding: 0.5em 1em;
+    display: block;
+  }
+
+  .site-nav.active .nav-links {
+    display: flex;
+  }
+
+  .nav-button {
+    width: 100%;
+    text-align: center;
+  }
+
+  main {
+    padding-top: 8em;
+  }
+
+  .container {
+    padding: 0 1em;
+    flex-direction: column !important;
+  }
+
+  .aboutus-content,
+  .features-wrapper,
+  .reviews-list,
+  .projects-gallery,
+  .footer-wrapper,
+  .essentials-container,
+  .two-column-contact {
+    flex-direction: column !important;
+    gap: 1.5em !important;
+  }
+
+  .project-item,
+  .feature-card,
+  .review-card,
+  .contact-left,
+  .contact-right {
+    max-width: 100% !important;
+  }
+
+  input,
+  textarea,
+  select,
+  button {
+    width: 100% !important;
+  }
+
+  .map-embed iframe {
+    height: 300px !important;
+  }
+
+  .offer-sidebar {
+    width: 100%;
+    max-width: 100%;
+    top: 0;
+    height: 100vh;
+  }
+
+  .projects-gallery {
+    grid-template-columns: 1fr !important;
+  }
+}

@@ -751,39 +751,3 @@ textarea {
   color: #EAD7B7;
   text-align: center;
 }
-
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  aside {
-    max-width: 100%;
-  }
-
-  .site-nav .nav-links {
-    display: none;
-    flex-direction: column;
-    background-color: white;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    right: 0;
-    z-index: 10;
-  }
-
-  .site-nav.active .nav-links {
-    display: flex;
-  }
-
-  .nav-toggle {
-    display: block;
-    cursor: pointer;
-  }
-
-   input, textarea, button {
-    width: 100%;
-    box-sizing: border-box;
-  }
-}
