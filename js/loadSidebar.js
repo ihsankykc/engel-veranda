@@ -66,6 +66,21 @@ inputs.forEach(el => {
       renderCartSummary();
     }
 
+    // Save full cart into hidden field before submitting
+    if (currentStep === 2) {
+      const cartField = document.getElementById("cartDataField");
+      if (cartField) {
+        cartField.value = cart.map((item, i) => {
+          return `Item ${i + 1}:\n` +
+            Object.entries(item).map(([k, v]) => {
+              if (v instanceof FileList) {
+                return `${k}: ${[...v].map(f => f.name).join(", ")}`;
+              }
+              return `${k}: ${v}`;
+            }).join("\n");
+        }).join("\n\n");
+      }
+    }
 
     if (currentStep < 3) showStep(currentStep + 1);
   }
