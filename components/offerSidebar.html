@@ -1,34 +1,35 @@
 
-<!-- offerSidebar.html -->
 <div id="offerSidebar" class="offer-sidebar hidden">
   <div class="form-container">
     <button id="closeOfferBtn" style="position:absolute;top:10px;right:15px;">✕</button>
-    <form name="offer" method="POST" enctype="multipart/form-data" data-netlify="true" netlify-honeypot="bot-field">
+
+    <form name="offer" method="POST" data-netlify="true" enctype="multipart/form-data" netlify-honeypot="bot-field">
       <input type="hidden" name="form-name" value="offer">
-      <input type="hidden" name="bot-field"> 
+      <input type="hidden" name="bot-field">
 
-
-      <!-- Step 1: Product Info -->
+      <!-- STEP 1: Product Selection -->
       <div class="form-step active" id="step1">
-        <h2>1. Product Information</h2>
-        <label class="section-label">Product Type</label><br/>
+        <h2>1. Choose a Product</h2>
         <label><input type="radio" name="productType" value="veranda" required> Aluminium Veranda</label><br/>
         <label><input type="radio" name="productType" value="glass"> Glass Sliding Walls</label><br/>
-        <label><input type="radio" name="productType" value="other"> Other</label><br/><br/>
+        <label><input type="radio" name="productType" value="other"> Other</label><br/>
+        <button type="button" class="button primary" onclick="nextStep()">Next</button>
+      </div>
 
-        <!-- Veranda Options -->
-        <div id="verandaOptions" class="conditional hidden">
-          <h3>Aluminium Veranda Options</h3>
-          <label for="verandaType" class="section-label">Select Veranda Type</label>
-          <select name="verandaType" id="verandaType" required>
-            <option value="" disabled selected>Select an option</option>
+      <!-- STEP 2: Product Configuration (conditional) -->
+      <div class="form-step" id="step2">
+        <h2>2. Configure Your Product</h2>
+
+        <div id="verandaOptions" class="conditional hidden form-section">
+          <label>Veranda Type</label>
+          <select name="verandaType">
             <option value="optimum">Optimum</option>
             <option value="premium">Premium</option>
             <option value="luxe">Luxe Line</option>
           </select>
-
+          
           <!-- Wideness -->
-             <label class="section-label">Wideness</label>
+             <label class="section-label">Width</label>
             <select name="width" required>
               <option value="<300cm">&lt;300 cm</option>
               <option value="300–400cm">300–400 cm</option>
@@ -42,7 +43,7 @@
               <option value="1100–1200cm">1100–1200 cm</option>
             </select>
 
-             <!-- Depth -->
+           <!-- Depth -->
             <label class="section-label">Depth</label>
             <select name="depth" required>
               <option value="250cm">250 cm</option>
@@ -53,7 +54,7 @@
               <option value="500cm">500 cm</option>
             </select>
 
-            <!-- Color -->
+             <!-- Color -->
             <label class="section-label">Color</label>
             <label><input type="radio" name="color" value="Black" required> Black</label><br/>
             <label><input type="radio" name="color" value="White"> White</label><br/>
@@ -91,11 +92,11 @@
             <label class="section-label">Lighting</label>
             <label><input type="radio" name="lighting" value="LED Inbouwspots" required> LED Inbouwspots</label><br/>
             <label><input type="radio" name="lighting" value="LED Lighting with Dimbaar"> LED Lighting with Dimbaar</label>
-          
+
         </div>
 
-        <!-- Glass Options -->
-         <div id="glassOptions" class="conditional hidden">
+       <!-- Glass Options -->
+         <div id="glassOptions" class="conditional hidden form-section">
           <label class="section-label">Type of Glass</label>
           <label><input type="checkbox" name="glassType" value="Tempered"> Tempered</label><br/>
           <label><input type="checkbox" name="glassType" value="Double Glazing"> Double Glazing</label>
@@ -114,54 +115,37 @@
           <label><input type="radio" name="glassWidth" value="1200–1300cm"> 1200 tot 1300 CM</label><br/>
           </div>
 
-        <!-- Other Options -->
-        <div id="otherOptions" class="conditional hidden">
-          <label class="section-label">Describe your request</label>
-          <textarea name="customMessage" rows="5"></textarea>
-          </div>
+        <label class="section-label">Describe your request</label>
+        <textarea name="customMessage" rows="5"></textarea>
 
         <label class="section-label">Upload Images</label>
         <input type="file" name="photos" multiple><br/><br/>
 
+
         <button type="button" class="button primary" onclick="nextStep()">Next</button>
       </div>
 
-      <!-- Step 2: Contact Info -->
-      <div class="form-step" id="step2">
-        <h2>2. Contact Information</h2>
-        <label>Name</label>
-        <input type="text" name="name" required><br/>
-        <label>Email</label>
-        <input type="email" name="email" required><br/>
-        <label>Phone</label>
-        <input type="tel" name="phone"><br/>
-        <label>House Number and Street</label>
-        <input type="text" name="streetAddress" required><br/>
-        <label>PostCode and City</label>
-        <input type="text" name="postcodeCity" required><br/>
-        <div class="form-nav">
-          <button type="button" class="button primary" onclick="prevStep()">Back</button>
-          <button type="button" class="button primary" onclick="nextStep()">Next</button>
-        </div>
+      
+
+      <!-- STEP 3: Cart Summary -->
+      <div class="form-step" id="step3">
+        <h2>3. Review Your Cart</h2>
+        <div id="summary"></div>
+        <button type="button" class="button primary" onclick="prevStep()">Back</button>
+        <button type="button" class="button primary" onclick="nextStep()">Next</button>
       </div>
 
-      <!-- Step 3: Confirm -->
-      <div class="form-step" id="step3">
-        <h2>3. Confirm Your Request</h2>
-        <div id="summary"></div>
-        <div class="form-nav">
-          <button type="button" class="button primary" onclick="prevStep()">Back</button>
-          <button type="submit" class="button primary">Submit</button>
-        </div>
+      <!-- STEP 4: Contact Info -->
+      <div class="form-step" id="step4">
+        <h2>4. Contact Information</h2>
+        <label>Name</label><input type="text" name="name" required>
+        <label>Email</label><input type="email" name="email" required>
+        <label>Phone</label><input type="tel" name="phone">
+        <label>Address</label><input type="text" name="address">
+        <button type="button" class="button primary" onclick="prevStep()">Back</button>
+        <button type="submit" class="button primary">Submit</button>
       </div>
     </form>
-
-    <div class="success-message" style="display: none;">
-      <h2>Thank you!</h2>
-      <p>Your request has been submitted. We'll get back to you shortly.</p>
-    </div>
   </div>
 </div>
-
 <div id="overlay" class="overlay hidden"></div>
-

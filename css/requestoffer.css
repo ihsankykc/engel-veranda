@@ -133,6 +133,22 @@ input[type="radio"], #offerSidebar input[type="checkbox"] {
   color: #333;
 }
 
+#summary {
+  color: #222 !important;
+}
+
+#summary li {
+  color: #222 !important;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 0.4em;
+}
+
+#summary li strong {
+  color: #000 !important;
+  font-weight: 600;
+}
+
 @media (min-width: 768px) {
   #offerSidebar .form-container form > label,
   #offerSidebar .form-container form > input,

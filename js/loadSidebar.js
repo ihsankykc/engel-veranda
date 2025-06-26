@@ -1,76 +1,108 @@
+
 function initOfferSidebar() {
   const offerSidebar = document.getElementById("offerSidebar");
   const overlay = document.getElementById("overlay");
-  const offerButtons = document.querySelectorAll("#requestOfferBtn, .request-offer-trigger");
   const steps = document.querySelectorAll(".form-step");
 
   let currentStep = 0;
+  let selectedProduct = null;
+  let cart = [];
 
-  offerButtons.forEach(btn => {
-    btn.addEventListener("click", (e) => {
-      e.preventDefault();
-      offerSidebar.classList.remove("hidden");
-      setTimeout(() => offerSidebar.classList.add("show"), 10);
-      overlay.classList.remove("hidden");
-      currentStep = 0;
-      showStep(currentStep);
+  function showStep(step) {
+    steps.forEach((el, idx) => {
+      el.classList.toggle("active", idx === step);
     });
-  });
+    currentStep = step;
+  }
 
-  window.closeOffer = function () {
+  function openSidebar() {
+    offerSidebar.classList.remove("hidden");
+    setTimeout(() => offerSidebar.classList.add("show"), 10); // allow transition
+    overlay.classList.remove("hidden");
+    showStep(0);
+  }
+
+  function closeSidebar() {
     offerSidebar.classList.remove("show");
     overlay.classList.add("hidden");
-    setTimeout(() => {
-      offerSidebar.classList.add("hidden");
-    }, 300);
-  };
-
-  document.getElementById("closeOfferBtn").addEventListener("click", closeOffer);
-  overlay.addEventListener("click", closeOffer);
-
-  window.nextStep = function () {
-    if (currentStep === 0) fillSummary();
-    if (currentStep < steps.length - 1) {
-      currentStep++;
-      showStep(currentStep);
-    }
-  };
-
-  window.prevStep = function () {
-    if (currentStep > 0) {
-      currentStep--;
-      showStep(currentStep);
-    }
-  };
-
-  function showStep(index) {
-    steps.forEach(step => step.classList.remove("active"));
-    if (steps[index]) steps[index].classList.add("active");
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    setTimeout(() => offerSidebar.classList.add("hidden"), 300); // allow animation to finish
   }
 
-  function fillSummary() {
+  function nextStep() {
+    if (currentStep === 0) {
+      selectedProduct = document.querySelector('input[name="productType"]:checked')?.value;
+      if (!selectedProduct) return alert("Please select a product.");
+      showConfigOptions(selectedProduct);
+    }
+
+    if (currentStep === 1) {
+      const form = document.querySelector('form[name="offer"]'); // ADD THIS LINE
+      const activeFormSection = document.querySelector(".form-step.active .form-section:not(.hidden)");
+      const data = new FormData(activeFormSection || form);
+      const config = {};
+      data.forEach((v, k) => config[k] = v);
+      cart.push(config);
+      renderCartSummary();
+    }
+
+    if (currentStep < 3) showStep(currentStep + 1);
+  }
+
+  function prevStep() {
+    if (currentStep > 0) showStep(currentStep - 1);
+  }
+
+  function renderCartSummary() {
     const summary = document.getElementById("summary");
-    const form = document.querySelector('form[name="offer"]');
-    const formData = new FormData(form);
-    let html = "<ul>";
-    for (let [key, value] of formData.entries()) {
-      html += `<li><strong>${key}:</strong> ${value}</li>`;
-    }
-    html += "</ul>";
-    summary.innerHTML = html;
+    summary.innerHTML = "";
+
+    cart.forEach((item, index) => {
+      const container = document.createElement("div");
+      container.innerHTML = `<h4>Item ${index + 1}</h4><ul style="margin-left:1em;"></ul>`;
+      const ul = container.querySelector("ul");
+      for (const key in item) {
+        if (["name", "email", "phone", "address", "form-name", "bot-field"].includes(key)) continue;
+        const li = document.createElement("li");
+        li.innerHTML = `<strong>${key}</strong>: ${item[key]}`;
+        ul.appendChild(li);
+      }
+      summary.appendChild(container);
+    });
   }
 
+  function showConfigOptions(productType) {
+    document.querySelectorAll(".conditional").forEach(el => el.classList.add("hidden"));
+    if (productType === "veranda") document.getElementById("verandaOptions")?.classList.remove("hidden");
+    if (productType === "glass") document.getElementById("glassOptions")?.classList.remove("hidden");
+    if (productType === "other") document.getElementById("otherOptions")?.classList.remove("hidden");
+  }
+
+  // Hook up buttons and radios
   document.querySelectorAll('input[name="productType"]').forEach(radio => {
-    radio.addEventListener("change", (e) => {
-      document.querySelectorAll(".conditional").forEach(div => div.classList.add("hidden"));
-      if (e.target.value === "veranda") document.getElementById("verandaOptions")?.classList.remove("hidden");
-      if (e.target.value === "glass") document.getElementById("glassOptions")?.classList.remove("hidden");
-      if (e.target.value === "other") document.getElementById("otherOptions")?.classList.remove("hidden");
+    radio.addEventListener("change", e => {
+      selectedProduct = e.target.value;
+      showConfigOptions(selectedProduct);
+      nextStep(); // Automatically move to config step
     });
   });
+
+
+  document.querySelectorAll("#requestOfferBtn, .request-offer-trigger").forEach(btn => {
+    btn.addEventListener("click", e => {
+      e.preventDefault();
+      openSidebar();
+    });
+  });
+
+  document.getElementById("closeOfferBtn")?.addEventListener("click", closeSidebar);
+  overlay.addEventListener("click", closeSidebar);
+
+  // Expose steps to window
+  window.nextStep = nextStep;
+  window.prevStep = prevStep;
 }
 
+// Dynamically load the sidebar
 document.addEventListener("DOMContentLoaded", function () {
   const sidebarTarget = document.getElementById("sidebarContainer");
   console.log("🔄 Fetching sidebar...");
