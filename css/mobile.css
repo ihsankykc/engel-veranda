@@ -1,3 +1,13 @@
+/* Toggle Button */
+.nav-toggle {
+  display: none;
+  font-size: 2em;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  margin-left: auto;
+}
 
 /* === Mobile Responsiveness === */
 @media (max-width: 768px) {
@@ -88,5 +98,20 @@
 
   .projects-gallery {
     grid-template-columns: 1fr !important;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: var(--text-color);
+  }
+
+  .site-nav.active .nav-links {
+    display: flex;
   }
 }

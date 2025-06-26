@@ -16,6 +16,7 @@
       <a href="index.html"><img src="img/safran_veranda.png" alt="Safran Veranda Logo" /></a>
     </div>
     <nav class="site-nav">
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="aboutus.html">About Us</a></li>
@@ -156,5 +157,11 @@
 
 <!-- JavaScript to trigger sidebar -->
 
-<div id="sidebarContainer"></div><script src="js/loadSidebar.js"></script></body>
+<div id="sidebarContainer"></div><script src="js/loadSidebar.js"></script>
+<script>
+  document.getElementById("navToggle").addEventListener("click", function () {
+    document.querySelector(".site-nav").classList.toggle("active");
+  });
+</script>
+</body>
 </html>
