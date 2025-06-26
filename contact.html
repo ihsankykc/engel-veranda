@@ -120,36 +120,33 @@
       </div>
      </div>
     </div>
+    
     <div class="contact-right">
-     <div class="contact-form">
-      <form action="/send_message.php" method="POST">
-       <label for="name">
-        Name
-       </label>
-       <input id="name" name="name" required="" type="text"/>
-       <label for="email">
-        Email
-       </label>
-       <input id="email" name="email" required="" type="email"/>
-       <label for="phone">
-        Phone
-       </label>
-       <input id="phone" name="phone" type="tel"/>
-       <label for="postcode">
-        Postcode and City
-       </label>
-       <input id="postcode" name="postcode" type="text"/>
-       <label for="message">
-        Message
-       </label>
-       <textarea id="message" name="message" required="" rows="6"></textarea>
-       <button class="button primary" type="submit">
-        Send Message
-       </button>
-      </form>
-     </div>
+        <div class="contact-form">
+            <form name="contact" method="POST" data-netlify="true" action="/thank-you.html">
+            <input type="hidden" name="form-name" value="contact" />
+
+            <label for="name">Name</label>
+            <input id="name" name="name" required type="text"/>
+
+            <label for="email">Email</label>
+            <input id="email" name="email" required type="email"/>
+
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" type="tel"/>
+
+            <label for="postcode">Postcode and City</label>
+            <input id="postcode" name="postcode" type="text"/>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required rows="6"></textarea>
+
+            <button class="button primary" type="submit">Send Message</button>
+            </form>
+        </div>
     </div>
    </section>
+
    <!-- Google Map Embed -->
    <div class="map-embed">
     <iframe allowfullscreen="" height="450" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2485.9841407414438!2d5.469207577085999!3d51.458447614277645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c6d93b018eeded%3A0x6cf5f6c9257baa61!2sBlondeelpad%2013%2C%205623%20BZ%20Eindhoven%2C%20Netherlands!5e0!3m2!1sen!2sde!4v1750126304613!5m2!1sen!2sde" style="border:0; border-radius:12px; margin-top:2em;" width="100%">
