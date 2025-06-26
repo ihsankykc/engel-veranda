@@ -7,6 +7,15 @@ function initOfferSidebar() {
   let currentStep = 0;
   let selectedProduct = null;
   let cart = [];
+  
+  function disableHiddenFields() {
+    document.querySelectorAll(".conditional").forEach(section => {
+      const isHidden = section.classList.contains("hidden");
+      section.querySelectorAll("input, select, textarea").forEach(el => {
+        el.disabled = isHidden;
+      });
+    });
+  }
   const savedCart = localStorage.getItem("offerCart");
   if (savedCart) {
     cart = JSON.parse(savedCart);
@@ -68,19 +77,25 @@ inputs.forEach(el => {
 
     // Save full cart into hidden field before submitting
     if (currentStep === 2) {
-      const cartField = document.getElementById("cartDataField");
-      if (cartField) {
-        cartField.value = cart.map((item, i) => {
-          return `Item ${i + 1}:\n` +
-            Object.entries(item).map(([k, v]) => {
-              if (v instanceof FileList) {
-                return `${k}: ${[...v].map(f => f.name).join(", ")}`;
-              }
-              return `${k}: ${v}`;
-            }).join("\n");
-        }).join("\n\n");
-      }
+    const cartField = document.getElementById("cartDataField");
+    if (cartField) {
+      cartField.value = cart.map((item, i) => {
+        return `Item ${i + 1}:\n` +
+          Object.entries(item).map(([k, v]) => {
+            if (v instanceof FileList) {
+              return `${k}: ${[...v].map(f => f.name).join(", ")}`;
+            }
+            return `${k}: ${v}`;
+          }).join("\n");
+      }).join("\n\n");
     }
+
+    disableHiddenFields(); // ✅ This is the important line
+
+    // Ensure all visible step 3 inputs are re-enabled
+    document.querySelectorAll(".form-step.active input, .form-step.active select, .form-step.active textarea")
+      .forEach(el => el.disabled = false);
+  }
 
     if (currentStep < 3) showStep(currentStep + 1);
   }
