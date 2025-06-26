@@ -7,6 +7,10 @@ function initOfferSidebar() {
   let currentStep = 0;
   let selectedProduct = null;
   let cart = [];
+  const savedCart = localStorage.getItem("offerCart");
+  if (savedCart) {
+    cart = JSON.parse(savedCart);
+  }
 
   function showStep(step) {
     steps.forEach((el, idx) => {
@@ -39,15 +43,26 @@ function initOfferSidebar() {
       const form = document.querySelector('form[name="offer"]');
       const activeFormSection = document.querySelector(".form-step.active .form-section:not(.hidden)");
       const config = {};
-      const inputs = (activeFormSection || form).querySelectorAll("input, select, textarea");
+      const sharedSection = document.querySelector(".shared-options");
 
-      inputs.forEach(el => {
-        if (!el.name) return;
-        if ((el.type === "radio" || el.type === "checkbox") && !el.checked) return;
-        config[el.name] = el.value;
-      });
+      const inputs = [
+        ...(activeFormSection?.querySelectorAll("input, select, textarea") || []),
+        ...(sharedSection?.querySelectorAll("input, select, textarea") || [])
+      ];
+
+inputs.forEach(el => {
+  if (!el.name) return;
+  if ((el.type === "radio" || el.type === "checkbox") && !el.checked) return;
+
+  if (el.type === "file") {
+    config[el.name] = el.files;
+  } else {
+    config[el.name] = el.value;
+  }
+});
 
       cart.push(config);
+      localStorage.setItem("offerCart", JSON.stringify(cart)); // save to localStorage
       renderCartSummary();
     }
 
@@ -60,22 +75,48 @@ function initOfferSidebar() {
   }
 
   function renderCartSummary() {
-    const summary = document.getElementById("summary");
-    summary.innerHTML = "";
+  const summary = document.getElementById("summary");
+  summary.innerHTML = "";
 
-    cart.forEach((item, index) => {
-      const container = document.createElement("div");
-      container.innerHTML = `<h4>Item ${index + 1}</h4><ul style="margin-left:1em;"></ul>`;
-      const ul = container.querySelector("ul");
-      for (const key in item) {
-        if (["name", "email", "phone", "address", "form-name", "bot-field"].includes(key)) continue;
-        const li = document.createElement("li");
-        li.innerHTML = `<strong>${key}</strong>: ${item[key]}`;
-        ul.appendChild(li);
-      }
-      summary.appendChild(container);
-    });
+  if (cart.length === 0) {
+    summary.innerHTML = "<p>No products in cart.</p>";
+    return;
   }
+
+  cart.forEach((item, index) => {
+    const container = document.createElement("div");
+    container.innerHTML = `
+      <h4>Item ${index + 1}</h4>
+      <ul style="margin-left:1em;"></ul>
+      <button onclick="removeCartItem(${index})" style="
+        margin-top: 0.5em;
+        font-size: 0.8rem;
+        background: #dc3545;
+        color: white;
+        border: none;
+        padding: 0.4em 0.8em;
+        border-radius: 4px;
+        cursor: pointer;
+      ">Remove</button>
+    `;
+    const ul = container.querySelector("ul");
+
+    for (const key in item) {
+      if (["name", "email", "phone", "address", "form-name", "bot-field"].includes(key)) continue;
+      const value = item[key];
+      const display = value instanceof FileList
+        ? [...value].map(f => f.name).join(", ")
+        : Array.isArray(value) ? value.join(", ") : value;
+      const li = document.createElement("li");
+      li.innerHTML = `<strong>${key}</strong>: ${display}`;
+      ul.appendChild(li);
+    }
+
+    summary.appendChild(container);
+  });
+}
+ 
+
 
   function showConfigOptions(productType) {
     document.querySelectorAll(".conditional").forEach(el => el.classList.add("hidden"));
@@ -102,11 +143,25 @@ function initOfferSidebar() {
   });
 
   document.getElementById("closeOfferBtn")?.addEventListener("click", closeSidebar);
+  document.getElementById("cartJumpBtn")?.addEventListener("click", () => {
+    if (cart.length === 0) {
+      alert("🛒 Your cart is currently empty.");
+    } else {
+      renderCartSummary();
+      showStep(2); // Go to step 3 (cart review)
+    }
+  });
   overlay.addEventListener("click", closeSidebar);
 
   // Expose steps to window
   window.nextStep = nextStep;
   window.prevStep = prevStep;
+
+  window.removeCartItem = function(index) {
+    cart.splice(index, 1);
+    localStorage.setItem("offerCart", JSON.stringify(cart));
+    renderCartSummary();
+  };
 }
 
 // Dynamically load the sidebar
