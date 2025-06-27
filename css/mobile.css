@@ -12,106 +12,60 @@
 /* === Mobile Responsiveness === */
 @media (max-width: 768px) {
 
-  .site-header {
-    flex-direction: column;
-    height: auto;
+   .nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 1em;
+    background-color: var(--text-color);
   }
-
-  .logo img {
-    max-height: 80px;
+  .nav-toggle {
+    display: block;
+    font-size: 2em;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
   }
 
   .site-nav {
+    display: none;
     flex-direction: column;
-    align-items: flex-start;
     width: 100%;
+    background-color: var(--text-color);
+  }
+
+  .site-nav.active {
+    display: flex;
   }
 
   .nav-links {
     flex-direction: column;
     width: 100%;
-    display: none;
-    background-color: var(--text-color);
-    padding: 1em 0;
   }
 
   .nav-links li a {
-    padding: 0.5em 1em;
     display: block;
-  }
-
-  .site-nav.active .nav-links {
-    display: flex;
+    padding: 1em;
+    color: white;
+    text-decoration: none;
   }
 
   .nav-button {
-    width: 100%;
     text-align: center;
+    padding: 1em;
   }
 
-  main {
-    padding-top: 8em;
-  }
-
-  .container {
-    padding: 0 1em;
-    flex-direction: column !important;
-  }
-
-  .aboutus-content,
-  .features-wrapper,
-  .reviews-list,
-  .projects-gallery,
-  .footer-wrapper,
-  .essentials-container,
-  .two-column-contact {
-    flex-direction: column !important;
-    gap: 1.5em !important;
-  }
-
-  .project-item,
-  .feature-card,
-  .review-card,
-  .contact-left,
-  .contact-right {
-    max-width: 100% !important;
-  }
-
-  input,
-  textarea,
-  select,
-  button {
-    width: 100% !important;
-  }
-
-  .map-embed iframe {
-    height: 300px !important;
-  }
-
-  .offer-sidebar {
-    width: 100%;
-    max-width: 100%;
-    top: 0;
-    height: 100vh;
-  }
-
-  .projects-gallery {
-    grid-template-columns: 1fr !important;
-  }
-
-  .nav-toggle {
-    display: block;
-  }
-
-  .nav-links {
-    display: none;
+   .site-header {
+    display: flex;
     flex-direction: column;
-    width: 100%;
+    align-items: stretch;
     background-color: var(--text-color);
   }
 
-  .site-nav.active .nav-links {
-    display: flex;
+  .logo img {
+    max-width: 120px;
+    height: auto;
   }
+
 }
