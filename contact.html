@@ -8,38 +8,43 @@
   </title>
   <link href="css/main.css" rel="stylesheet"/>
   <link rel="stylesheet" href="css/requestoffer.css" />
+  <link rel="stylesheet" href="css/mobile.css" />
  </head>
  <body>
-  <header class="site-header">
-    <div class="logo">
-        <a href="index.html"><img alt="Safran Veranda Logo" src="img/safran_veranda.png"/></a>
+<header class="site-header">
+    <div class="nav-wrapper">
+      <div class="logo">
+        <a href="index.html"><img src="img/safran_veranda.png" alt="Safran Veranda Logo" /></a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
     </div>
     <nav class="site-nav">
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="aboutus.html">About Us</a></li>
-            <li class="dropdown">
-            <a href="products.html">Products</a>
-            <ul class="dropdown-menu">
-                <li class="dropdown-submenu">
-                <a href="products.html">Veranda</a>
-                <ul class="submenu">
-                    <li><a href="optimum_veranda.html">Optimum</a></li>
-                    <li><a href="premium_veranda.html">Premium</a></li>
-                    <li><a href="luxe_line_veranda.html">Luxe Line</a></li>
-                </ul>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="aboutus.html">About Us</a></li>
+        <li class="dropdown">
+          <a href="products.html">Products</a>
+          <ul class="dropdown-menu">
+            <li class="dropdown-submenu">
+              <a href="products.html">Veranda</a>
+              <ul class="submenu">
+              <li><a href="optimum_veranda.html">Optimum</a></li>
+              <li><a href="premium_veranda.html">Premium</a></li>
+              <li><a href="luxe_line_veranda.html">Luxe Line</a></li>
+              </ul>
             </li>
             <li><a href="glass_systems.html">Glass Systems</a></li>
-            </ul>
-            </li>
-            <li><a href="gallery.html">Photo Gallery</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-        <div class="nav-button">
-            <a class="button primary" href="#" id="requestOfferBtn">Request an Offer</a>
-        </div>
+          </ul>
+        </li>
+        <li><a href="gallery.html">Photo Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-button">
+        <a href="#" class="button primary" id="requestOfferBtn">Request an Offer</a>
+      </div>
     </nav>
-</header>
+  </header>
+
   <main style="padding-top: 10em;">
    <section class="contact-section">
     <div class="contact-info">
@@ -181,6 +186,12 @@
         <p>© 2025 Engel Varenda. All rights reserved.</p>
     </div>
 </footer>
+
+<script>
+  document.getElementById("navToggle").addEventListener("click", function () {
+    document.querySelector(".site-nav").classList.toggle("active");
+  });
+</script>
 
   <div id="sidebarContainer"></div>
   <script src="js/loadSidebar.js"></script>

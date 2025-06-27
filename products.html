@@ -6,11 +6,16 @@
   <title>Our Products - Engel Veranda</title>
   <link rel="stylesheet" href="css/main_products.css" />
   <link rel="stylesheet" href="css/requestoffer.css" />
+  <link rel="stylesheet" href="css/mobile.css" />
+
 </head>
 <body>
-  <header class="site-header">
-    <div class="logo">
-      <a href="index.html"><img src="img/safran_veranda.png" alt="Safran Veranda Logo" /></a>
+<header class="site-header">
+    <div class="nav-wrapper">
+      <div class="logo">
+        <a href="index.html"><img src="img/safran_veranda.png" alt="Safran Veranda Logo" /></a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
     </div>
     <nav class="site-nav">
       <ul class="nav-links">
@@ -38,7 +43,6 @@
       </div>
     </nav>
   </header>
-
   <main style="padding: 14em 2em 4em; background: var(--bg-light); color: var(--text-color);">
     <div class="container" style="display: flex; gap: 2rem; align-items: flex-start;">
 
@@ -68,7 +72,7 @@
         </section>
 
         <section class="product">
-          <div class="container">\            
+          <div class="container">            
             <h2 class="section-heading">Our Products</h2>
           </div>
 
@@ -157,6 +161,12 @@
         <p>© 2025 Engel Varenda. All rights reserved.</p>
     </div>
 </footer>
+
+<script>
+  document.getElementById("navToggle").addEventListener("click", function () {
+    document.querySelector(".site-nav").classList.toggle("active");
+  });
+</script>
 
 
   <div id="sidebarContainer"></div>
