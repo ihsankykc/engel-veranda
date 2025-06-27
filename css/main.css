@@ -720,19 +720,40 @@ textarea {
 
 }
 
-.carousel-nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: var(--primary-color);
-  color: #fff;
-  border: none;
-  font-size: 1.2em;
-  cursor: pointer;
-  padding: 0.2em 0.6em;
+/* Navigation Arrows */
+.swiper-button-prev,
+.swiper-button-next {
+  width: 30px;
+  height: 30px;
+  background: var(--primary-color); /* your red */
   border-radius: 50%;
-  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 14px;
+  box-shadow: none;
 }
+
+.swiper-button-prev::after {
+  content: '‹' !important;
+  font-size: 16px !important;
+  color: white !important;
+}
+
+.swiper-button-next::after {
+  content: '›' !important;
+  font-size: 16px !important;
+  color: white !important;
+}
+
+/* Remove browser focus outline */
+.swiper-button-prev:focus,
+.swiper-button-next:focus {
+  outline: none;
+  box-shadow: none;
+}
+
 
 .carousel-nav.left {
   left: 0;
@@ -741,6 +762,8 @@ textarea {
 .carousel-nav.right {
   right: 0;
 }
+
+
 
 .how-we-work .section-heading {
   color: #EAD7B7;
@@ -751,3 +774,4 @@ textarea {
   color: #EAD7B7;
   text-align: center;
 }
+

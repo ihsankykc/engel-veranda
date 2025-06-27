@@ -7,6 +7,8 @@
   <link rel="stylesheet" href="css/main.css" />
   <link rel="stylesheet" href="css/mobile.css" />
   <link rel="stylesheet" href="css/requestoffer.css" />
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
 </head>
 <body>
@@ -121,6 +123,80 @@
     </div>
   </section>
 
+  <!-- Testimonials -->
+  <section class="client-reviews">
+    <div class="reviews-intro">
+      <h2 class="section-heading">What Our Clients Say</h2>
+      <p>Feedback from customers who transformed their homes with us.</p>
+    </div>
+
+    <div class="swiper review-swiper">
+      <div class="swiper-wrapper">
+
+        <!-- Each review goes in a swiper-slide -->
+        <div class="swiper-slide review-card">
+          <div class="review-header">
+            <div class="avatar">A</div>
+            <div><strong>Ayşe K.</strong><br><small>Eindhoven</small></div>
+          </div>
+          <div class="review-stars">★★★★★</div>
+          <blockquote>Engel Veranda sayesinde bahçemiz artık yılın her günü kullanılabilir. Hem estetik hem çok işlevsel. Teşekkürler!</blockquote>
+        </div>
+
+        <div class="swiper-slide review-card">
+          <div class="review-header">
+            <div class="avatar">M</div>
+            <div><strong>Michael D.</strong><br><small>Berlin</small></div>
+          </div>
+          <div class="review-stars">★★★★★</div>
+          <blockquote>Our veranda became the heart of our home. The craftsmanship and service were beyond expectations.</blockquote>
+        </div>
+
+        <div class="swiper-slide review-card">
+          <div class="review-header">
+            <div class="avatar">L</div>
+            <div><strong>Laura P.</strong><br><small>Amsterdam</small></div>
+          </div>
+          <div class="review-stars">★★★★★</div>
+          <blockquote>Our veranda became the heart of our home. The craftsmanship and service were beyond expectations.</blockquote>
+        </div>
+
+        <div class="swiper-slide review-card">
+          <div class="review-header">
+            <div class="avatar">T</div>
+            <div><strong>Thomas R.</strong><br><small>Brussels</small></div>
+          </div>
+          <div class="review-stars">★★★★★</div>
+          <blockquote>Our veranda became the heart of our home. The craftsmanship and service were beyond expectations.</blockquote>
+        </div>
+
+        <div class="swiper-slide review-card">
+          <div class="review-header">
+            <div class="avatar">S</div>
+            <div><strong>Sofie W.</strong><br><small>Utrecht</small></div>
+          </div>
+          <div class="review-stars">★★★★★</div>
+          <blockquote>Our veranda became the heart of our home. The craftsmanship and service were beyond expectations.</blockquote>
+        </div>
+
+        <div class="swiper-slide review-card">
+          <div class="review-header">
+            <div class="avatar">J</div>
+            <div><strong>Jeroen K.</strong><br><small>Rotterdam</small></div>
+          </div>
+          <div class="review-stars">★★★★★</div>
+          <blockquote>Our veranda became the heart of our home. The craftsmanship and service were beyond expectations.</blockquote>
+        </div>
+
+      </div>
+
+      <!-- Optional Navigation Arrows -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+  </section>
+
+
     <!-- Testimonials -->
     <section class="client-reviews">
       <div class="reviews-intro">
@@ -193,6 +269,23 @@
     </section>
 
   </main>
+
+  <script>
+  const reviewSwiper = new Swiper('.review-swiper', {
+    loop: true,
+    slidesPerView: 1,
+    spaceBetween: 20,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    breakpoints: {
+      768: {
+        slidesPerView: 2,
+      }
+    }
+  });
+</script>
 
   <script>
   document.getElementById("navToggle").addEventListener("click", function () {

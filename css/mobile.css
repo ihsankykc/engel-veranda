@@ -68,4 +68,25 @@
     height: auto;
   }
 
+   .reviews-list {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+    .review-swiper .swiper-slide {
+    flex: 0 0 100%;
+    margin: 0 auto;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    display: none;
+  }
+
+  
+
 }
