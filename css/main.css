@@ -239,7 +239,7 @@ img {
 .review-header {
   display: flex;
   align-items: center;
-  margin-bottom: 1em;
+  margin-bottom: 0.5em;
 }
 
 .avatar {
@@ -256,6 +256,9 @@ img {
 }
 
 .review-stars {
+  margin-top: 0;          /* ✅ remove extra space */
+  margin-bottom: 0.5rem;  /* keep a little space above quote */
+  line-height: 1;
   color: #f5c518;
   font-size: 1.2em;
 }
@@ -696,54 +699,66 @@ textarea {
   line-height: 1.6;
 }
 
-.carousel-wrapper {
-  position: relative;
-  overflow: hidden;
-  max-width: 1300px;
-  margin: 0 auto;
-}
-
-.carousel-track {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-  width: max-content; /* allow it to grow naturally */
-  scroll-snap-type: x mandatory;
-
-}
-
-.review-card {
-  flex: 0 0 calc(33.3333% - 2rem); /* make room for spacing */
-  margin: 0 1rem; /* space between cards */
+.review-swiper .swiper-slide {
   box-sizing: border-box;
-  padding: 1.5em;
-  scroll-snap-align: start;
-
 }
 
-/* Navigation Arrows */
+.swiper-slide.review-card {
+  background: #fff; /* match upper cards' background */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 220px; /* control height */
+  max-height: 220px; /* fix it exactly like the top cards */
+  height: 100%;
+  min-height: 220px;
+  padding: 1.25rem 1.25rem; /* ✅ tighter horizontal padding */
+  box-sizing: border-box;
+  overflow: hidden; /* ✅ prevent accidental bleed */
+}
+
+
 .swiper-button-prev,
 .swiper-button-next {
-  width: 30px;
-  height: 30px;
-  background: var(--primary-color); /* your red */
+  width: 40px;
+  height: 40px;
+  background: var(--primary-color);
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
-  font-size: 14px;
-  box-shadow: none;
+  padding: 0;
+  border: none;
+  line-height: 1;
+  z-index: 10;
+ 
+  /* ✅ Vertically center perfectly */
+  top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
 }
+
+
+.review-swiper {
+  position: relative; /* ✅ required for absolute arrows to align */
+}
+
 
 .swiper-button-prev::after {
   content: '‹' !important;
-  font-size: 16px !important;
+  font-size: 20px !important;
   color: white !important;
 }
 
 .swiper-button-next::after {
   content: '›' !important;
-  font-size: 16px !important;
+  font-size: 20px !important;
   color: white !important;
 }
 
@@ -752,6 +767,12 @@ textarea {
 .swiper-button-next:focus {
   outline: none;
   box-shadow: none;
+}
+
+.client-reviews-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
 
