@@ -796,3 +796,33 @@ textarea {
   text-align: center;
 }
 
+.logo-language-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.8em;
+}
+
+.language-switcher {
+  display: flex;
+  gap: 0.4em;
+  list-style: none;
+}
+
+.language-switcher li a img {
+  width: 24px;
+  height: auto;
+  border: 1px solid #ffffff33; /* subtle white border with transparency */
+  border-radius: 4px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.language-switcher li a img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+}
+
+@media (min-width: 769px) {
+  .mobile-language-dropdown {
+    display: none;
+  }
+}

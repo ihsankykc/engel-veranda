@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Kontakt | Engel Varenda
+  </title>
+  <link href="/css/main.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="/css/requestoffer.css" />
+  <link rel="stylesheet" href="/css/mobile.css" />
+ </head>
+ <body>
+
+  <header class="site-header">
+      <div class="nav-wrapper">
+        <div class="logo-language-wrapper">
+          <div class="logo">
+            <a href="index.html"><img src="/img/safran_veranda.png" alt="Safran Veranda Logo" /></a>
+          </div>
+          <ul class="language-switcher desktop">
+            <li>
+              <a href="/en/index.html"><img src="/icons/en_flag.svg" alt="English" width="24" height="16" /></a>
+            </li>
+            <li>
+              <a href="/de/index.html"><img src="/icons/de_flag.svg" alt="Deutsch" width="24" height="16" /></a>
+            </li>
+            <li>
+              <a href="/nl/index.html"><img src="/icons/nl_flag.svg" alt="Nederlands" width="24" height="16" /></a>
+            </li>
+            <li>
+              <a href="/tr/index.html"><img src="/icons/tr_flag.svg" alt="Türkçe" width="24" height="16" /></a>
+            </li>
+          </ul>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+      </div>
+    <nav class="site-nav">
+      <ul class="nav-links">
+        <li><a href="index.html">Startseite</a></li>
+        <li><a href="aboutus.html">Über Uns</a></li>
+        <li class="dropdown">
+          <a href="products.html">Produkte</a>
+          <ul class="dropdown-menu">
+            <li class="dropdown-submenu">
+              <a href="products.html">Veranda</a>
+              <ul class="submenu">
+              <li><a href="optimum_veranda.html">Optimum</a></li>
+              <li><a href="premium_veranda.html">Premium</a></li>
+              <li><a href="luxe_line_veranda.html">Luxe Line</a></li>
+              </ul>
+            </li>
+            <li><a href="glass_systems.html">Glassysteme</a></li>
+          </ul>
+        </li>
+        <li><a href="gallery.html">Galerie</a></li>
+        <li><a href="contact.html">Kontakt</a></li>
+      </ul>
+      <div class="nav-button">
+        <a href="#" class="button primary" id="requestOfferBtn">Angebot anfordern</a>
+      </div>
+    </nav>
+  </header>
+  
+
+  <main style="padding-top: 10em;">
+   <section class="contact-section">
+    <div class="contact-info">
+      <p class="section-tagline">Wir freuen uns auf Ihre Nachricht</p>
+      <h2>Kontakt zu Engel Veranda</h2>
+      <p>Haben Sie Fragen zu unseren Produkten, Dienstleistungen oder möchten Sie ein individuelles Angebot? Dann zögern Sie nicht, uns zu kontaktieren.</p>
+      <p>Wir unterstützen Sie gerne bei allen Anliegen und begleiten Sie bei jedem Schritt auf dem Weg zu Ihrer Traumveranda.</p>
+    </div>
+   </section>
+   <section class="contact-section two-column-contact">
+    <div class="contact-left">
+     <div class="contact-info">
+      <div class="extra-info">
+      <h3>Warum uns kontaktieren?</h3>
+      <ul>
+        <li>Kostenlose und unverbindliche Angebote</li>
+        <li>Fachkundige Beratung, abgestimmt auf Ihre Bedürfnisse</li>
+        <li>Unterstützung auf Deutsch, Englisch und Niederländisch</li>
+        <li>Schnelle Rückmeldung innerhalb von 24 Stunden</li>
+      </ul>
+       <div class="adress-phone">
+        <div>
+          <h3>E-Mail und Telefon</h3>
+          <p>
+          info@engelvarenda.com<br/>
+          (+31)06 12345678
+          </p>
+        </div>
+        <div>
+          <h3>Unsere Adresse</h3>
+          <p>
+          Blondeelpad 13, 5623 BZ<br/>
+          Eindhoven, Niederlande
+          </p>
+        </div>
+       </div>
+      </div>
+      <h3>
+       Follow Us
+      </h3>
+      <div class="social-links">
+       <a aria-label="Facebook" href="https://www.facebook.com/yourpage" target="_blank">
+        <img alt="Facebook" src="/icons/facebook.svg"/>
+       </a>
+       <a aria-label="Instagram" href="https://www.instagram.com/yourpage" target="_blank">
+        <img alt="Instagram" src="/icons/instagram.svg"/>
+       </a>
+       <a aria-label="TikTok" href="https://www.tiktok.com/@yourprofile" target="_blank">
+        <img alt="TikTok" src="/icons/tiktok.svg"/>
+       </a>
+       <a aria-label="WhatsApp" href="https://wa.me/1234567890" target="_blank">
+        <img alt="WhatsApp" src="/icons/whatsapp.svg"/>
+       </a>
+      </div>
+     </div>
+    </div>
+    
+    <div class="contact-right">
+        <div class="contact-form">
+            <form name="contact" method="POST" data-netlify="true" action="/thank-you.html">
+            <input type="hidden" name="form-name" value="contact" />
+
+            <label for="name">Name</label>
+            <input id="name" name="name" required type="text"/>
+
+            <label for="email">E-Mail</label>
+            <input id="email" name="email" required type="email"/>
+
+            <label for="phone">Telefon</label>
+            <input id="phone" name="phone" type="tel"/>
+
+            <label for="postcode">Postleitzahl und Stadt</label>
+            <input id="postcode" name="postcode" type="text"/>
+
+            <label for="message">Nachricht</label>
+            <textarea id="message" name="message" required rows="6"></textarea>
+
+            <button class="button primary" type="submit">Nachricht senden</button>
+            </form>
+        </div>
+    </div>
+   </section>
+
+   <!-- Google Map Embed -->
+   <div class="map-embed">
+    <iframe allowfullscreen="" height="450" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2485.9841407414438!2d5.469207577085999!3d51.458447614277645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c6d93b018eeded%3A0x6cf5f6c9257baa61!2sBlondeelpad%2013%2C%205623%20BZ%20Eindhoven%2C%20Netherlands!5e0!3m2!1sen!2sde!4v1750126304613!5m2!1sen!2sde" style="border:0; border-radius:12px; margin-top:2em;" width="100%">
+    </iframe>
+   </div>
+  </main>
+ 
+  <footer class="site-footer">
+    <div class="footer-wrapper">
+        <div class="footer-logo">
+            <h3>Engel Varenda</h3>
+            <p>Custom verandas, garden rooms, and outdoor solutions — where craftsmanship meets elegance.</p>
+        </div>
+        <div class="footer-links">
+            <h4>Schnellzugriff</h4>
+            <ul>
+              <li><a href="index.html">Startseite</a></li>
+              <li><a href="aboutus.html">Über Uns</a></li>
+              <li><a href="products.html">Produkte</a></li>
+              <li><a href="gallery.html">Galerie</a></li>
+              <li><a href="contact.html">Kontakt</a></li>
+            </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Kontakt</h4>
+          <p>Email: info@engel-varenda.com</p>
+          <p>Telefon: +123 456 7890</p>
+          <p>Standort: Eindhoven, Niederlande</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Engel Varenda. Alle Rechte vorbehalten.</p>
+    </div>
+</footer>
+
+<script>
+  document.getElementById("navToggle").addEventListener("click", function () {
+    document.querySelector(".site-nav").classList.toggle("active");
+  });
+</script>
+
+  <div id="sidebarContainer"></div>
+  <script src="/js/loadSidebar.js"></script>
+ </body>
+</html>

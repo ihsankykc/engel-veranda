@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Request an Offer | Engel Varenda</title>
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/requestoffer.css" />
+</head>
+<body>
+
+  <header class="site-header">
+      <div class="nav-wrapper">
+        <div class="logo-language-wrapper">
+          <div class="logo">
+            <a href="index.html"><img src="/img/safran_veranda.png" alt="Safran Veranda Logo" /></a>
+          </div>
+          <ul class="language-switcher desktop">
+            <li>
+              <a href="/en/index.html"><img src="/icons/en_flag.svg" alt="English" width="24" height="16" /></a>
+            </li>
+            <li>
+              <a href="/de/index.html"><img src="/icons/de_flag.svg" alt="Deutsch" width="24" height="16" /></a>
+            </li>
+            <li>
+              <a href="/nl/index.html"><img src="/icons/nl_flag.svg" alt="Nederlands" width="24" height="16" /></a>
+            </li>
+            <li>
+              <a href="/tr/index.html"><img src="/icons/tr_flag.svg" alt="Türkçe" width="24" height="16" /></a>
+            </li>
+          </ul>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+      </div>
+    <nav class="site-nav">
+      <ul class="nav-links">
+        <li><a href="index.html">Ana Sayfa</a></li>
+        <li><a href="aboutus.html">Hakkımızda</a></li>
+        <li class="dropdown">
+          <a href="products.html">Ürünler</a>
+          <ul class="dropdown-menu">
+            <li class="dropdown-submenu">
+              <a href="products.html">Veranda</a>
+              <ul class="submenu">
+              <li><a href="optimum_veranda.html">Optimum</a></li>
+              <li><a href="premium_veranda.html">Premium</a></li>
+              <li><a href="luxe_line_veranda.html">Luxe Line</a></li>
+              </ul>
+            </li>
+            <li><a href="glass_systems.html">Cam Sistemleri</a></li>
+          </ul>
+        </li>
+        <li><a href="gallery.html">Fotoğraf Galerisi</a></li>
+        <li><a href="contact.html">İletişim</a></li>
+      </ul>
+      <div class="nav-button">
+        <a href="#" class="button primary" id="requestOfferBtn">Teklif Al</a>
+      </div>
+    </nav>
+  </header>
+  
+  
+  <main>
+    <section class="form-container">
+      <h1>Request a Personalized Offer</h1>
+      <form id="offerForm">
+
+        <!-- Step 1: Product Info -->
+        <div class="form-step active" id="step1">
+          <h2>1. Product Information</h2>
+
+          <label class="section-label">Product Type</label><br/>
+          <label><input type="radio" name="productType" value="veranda" required> Aluminium Veranda</label><br/>
+          <label><input type="radio" name="productType" value="glass"> Glass Sliding Walls</label><br/>
+          <label><input type="radio" name="productType" value="other"> Other</label><br/><br/>
+
+          <div id="verandaOptions" class="conditional hidden">
+            <h3>Aluminium Veranda Options</h3>
+
+            <!-- Wideness -->
+             <label class="section-label">Wideness</label>
+            <select name="width" required>
+              <option value="<300cm">&lt;300 cm</option>
+              <option value="300–400cm">300–400 cm</option>
+              <option value="400–500cm">400–500 cm</option>
+              <option value="500–600cm">500–600 cm</option>
+              <option value="600–700cm">600–700 cm</option>
+              <option value="700–800cm">700–800 cm</option>
+              <option value="800–900cm">800–900 cm</option>
+              <option value="900–1000cm">900–1000 cm</option>
+              <option value="1000–1100cm">1000–1100 cm</option>
+              <option value="1100–1200cm">1100–1200 cm</option>
+            </select>
+
+            <!-- Depth -->
+            <label class="section-label">Depth</label>
+            <select name="depth" required>
+              <option value="250cm">250 cm</option>
+              <option value="300cm">300 cm</option>
+              <option value="350cm">350 cm</option>
+              <option value="400cm">400 cm</option>
+              <option value="450cm">450 cm</option>
+              <option value="500cm">500 cm</option>
+            </select>
+
+            <!-- Color -->
+            <label class="section-label">Color</label>
+            <label><input type="radio" name="color" value="Black" required> Black</label><br/>
+            <label><input type="radio" name="color" value="White"> White</label><br/>
+            <label><input type="radio" name="color" value="Anthracite"> Anthracite</label>
+
+            <label class="section-label">Ceiling</label>
+            <label><input type="radio" name="ceiling" value="Policarbon Bright" required> Policarbon Bright</label><br/>
+            <label><input type="radio" name="ceiling" value="Policarbon Shaded"> Policarbon Shaded</label><br/>
+            <label><input type="radio" name="ceiling" value="Glass"> Glass</label>
+
+            <label class="section-label">Front Side</label>
+            <label><input type="radio" name="frontside" value="Glass Sliding Door" required> Glass Sliding Door</label><br/>
+            <label><input type="radio" name="frontside" value="Locked Glass Systems"> Locked Glass Systems</label>
+
+            <label class="section-label">Left Side</label>
+            <label><input type="radio" name="leftside" value="Sandwich Panel" required> Sandwich Panel</label><br/>
+            <label><input type="radio" name="leftside" value="Glass"> Glass</label><br/>
+            <label><input type="radio" name="leftside" value="Policarbon"> Policarbon</label>
+
+            <label class="section-label">Right Side</label>
+            <label><input type="radio" name="rightside" value="Sandwich Panel" required> Sandwich Panel</label><br/>
+            <label><input type="radio" name="rightside" value="Glass"> Glass</label><br/>
+            <label><input type="radio" name="rightside" value="Policarbon"> Policarbon</label>
+
+            <label class="section-label">Spie Left Side</label>
+            <label><input type="radio" name="spieLeft" value="Policarbon" required> Policarbon</label><br/>
+            <label><input type="radio" name="spieLeft" value="Sandwich Panel"> Sandwich Panel</label><br/>
+            <label><input type="radio" name="spieLeft" value="Spie Glass"> Spie Glass</label>
+
+            <label class="section-label">Spie Right Side</label>
+            <label><input type="radio" name="spieRight" value="Policarbon" required> Policarbon</label><br/>
+            <label><input type="radio" name="spieRight" value="Sandwich Panel"> Sandwich Panel</label><br/>
+            <label><input type="radio" name="spieRight" value="Spie Glass"> Spie Glass</label>
+
+            <label class="section-label">Lighting</label>
+            <label><input type="radio" name="lighting" value="LED Inbouwspots" required> LED Inbouwspots</label><br/>
+            <label><input type="radio" name="lighting" value="LED Lighting with Dimbaar"> LED Lighting with Dimbaar</label>
+          </div>
+
+
+
+
+          <div id="glassOptions" class="conditional hidden">
+          <label class="section-label">Type of Glass</label>
+          <label><input type="checkbox" name="glassType" value="Tempered"> Tempered</label><br/>
+          <label><input type="checkbox" name="glassType" value="Double Glazing"> Double Glazing</label>
+
+          <label class="section-label">Width</label>
+          <label><input type="radio" name="glassWidth" value="<300cm">&lt;300 cm</label><br/>
+          <label><input type="radio" name="glassWidth" value="300–400cm"> 300 tot 400 CM</label><br/>
+          <label><input type="radio" name="glassWidth" value="400–500cm"> 400 tot 500 CM</label><br/>
+          <label><input type="radio" name="glassWidth" value="500–600cm"> 500 tot 600 CM</label><br/>
+          <label><input type="radio" name="glassWidth" value="600–700cm"> 600 tot 700 CM</label><br/>
+          <label><input type="radio" name="glassWidth" value="700–800cm"> 700 tot 800 CM</label><br/>
+          <label><input type="radio" name="glassWidth" value="800–900cm"> 800 tot 900 CM</label><br/>
+          <label><input type="radio" name="glassWidth" value="900–1000cm"> 900 tot 1000 CM</label><br/>
+          <label><input type="radio" name="glassWidth" value="1000–1100cm"> 1000 tot 1100 CM</label><br/>
+          <label><input type="radio" name="glassWidth" value="1100–1200cm"> 1100 tot 1200 CM</label><br/>
+          <label><input type="radio" name="glassWidth" value="1200–1300cm"> 1200 tot 1300 CM</label><br/>
+          </div>
+
+          <div id="otherOptions" class="conditional hidden">
+          <label class="section-label">Describe your request</label>
+          <textarea name="customMessage" rows="5"></textarea>
+          </div>
+
+          <label class="section-label">Upload Images</label>
+          <input type="file" name="photos" multiple><br/><br/>
+
+          <button type="button" onclick="nextStep()">Next</button>
+        </div>
+
+        <!-- Step 2: Contact Info -->
+        <div class="form-step" id="step2">
+          <h2>2. Contact Information</h2>
+
+          <label>Name</label>
+          <input type="text" name="name" required><br/>
+
+          <label>Email</label>
+          <input type="email" name="email" required><br/>
+
+          <label>Phone</label>
+          <input type="tel" name="phone"><br/>
+
+          <div class="form-nav">
+            <button type="button" onclick="prevStep()">Back</button>
+            <button type="button" onclick="nextStep()">Next</button>
+          </div>
+        </div>
+
+        <!-- Step 3: Confirm -->
+        <div class="form-step" id="step3">
+          <h2>3. Confirm Your Request</h2>
+          <div id="summary"></div>
+          <div class="form-nav">
+            <button type="button" onclick="prevStep()">Back</button>
+            <button type="submit">Submit</button>
+          </div>
+        </div>
+
+      </form>
+
+      <div class="success-message" style="display: none;">
+        <h2>Thank you!</h2>
+        <p>Your request has been submitted. We'll get back to you shortly.</p>
+      </div>
+
+    </section>
+  </main>
+
+  <script>
+    const steps = document.querySelectorAll('.form-step');
+    let currentStep = 0;
+
+    function showStep(index) {
+      steps.forEach(step => step.classList.remove('active'));
+      steps[index].classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    }
+
+    function nextStep() {
+      if (currentStep === 0) fillSummary(); 
+      if (currentStep < steps.length - 1) {
+        currentStep++;
+        showStep(currentStep);
+      }
+    }
+
+    function prevStep() {
+      if (currentStep > 0) {
+        currentStep--;
+        showStep(currentStep);
+      }
+    }
+
+    // Toggle product-specific fields
+    document.querySelectorAll('input[name="productType"]').forEach(radio => {
+      radio.addEventListener('change', (e) => {
+        document.querySelectorAll('.conditional').forEach(div => div.classList.add('hidden'));
+        if (e.target.value === 'veranda') document.getElementById('verandaOptions').classList.remove('hidden');
+        if (e.target.value === 'glass') document.getElementById('glassOptions').classList.remove('hidden');
+        if (e.target.value === 'other') document.getElementById('otherOptions').classList.remove('hidden');
+      });
+    });
+
+    function fillSummary() {
+      const summary = document.getElementById('summary');
+      const formData = new FormData(document.getElementById('offerForm'));
+      let html = "<ul>";
+      for (let [key, value] of formData.entries()) {
+        html += `<li><strong>${key}:</strong> ${value}</li>`;
+      }
+      html += "</ul>";
+      summary.innerHTML = html;
+    }
+
+    showStep(0);
+
+    document.getElementById('offerForm').addEventListener('submit', function(e) {
+      e.preventDefault(); // prevent default submission for now
+      this.style.display = 'none'; // hide the form
+      document.querySelector('.success-message').style.display = 'block'; // show thank-you message
+    });
+  </script>
+</body>
+</html>

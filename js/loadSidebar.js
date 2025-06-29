@@ -215,7 +215,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const sidebarTarget = document.getElementById("sidebarContainer");
   console.log("🔄 Fetching sidebar...");
 
-  fetch("components/offerSidebar.html")
+  fetch("/components/offerSidebar.html")
     .then(response => {
       console.log("✅ Sidebar file fetched");
       return response.text();

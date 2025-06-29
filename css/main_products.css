@@ -693,3 +693,47 @@ h4.sidebar-subtopic {
   align-items: center;
   justify-content: center;
 }
+
+.logo-language-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* logo left, flags right */
+  width: 100%;
+  gap: 0.5em;
+}
+
+.language-switcher {
+  display: flex;
+  gap: 0.4em;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.language-switcher li a img {
+  width: 24px;
+  height: auto;
+  border: 1px solid #ffffff33;
+  border-radius: 4px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.language-switcher li a img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+}
+
+@media (max-width: 768px) {
+  .logo-language-wrapper {
+    flex-wrap: nowrap;
+  }
+  .language-switcher {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    background-color: var(--text-color);
+    border-radius: 6px;
+    padding: 0.2em 0.5em;
+    z-index: 999;
+  }
+}
