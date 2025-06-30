@@ -61,11 +61,19 @@
     flex-direction: column;
     align-items: stretch;
     background-color: var(--text-color);
+
   }
 
   .logo img {
     max-width: 120px;
-    height: auto;
+    height: 100%;
+    width: auto;
+    max-height: 100%;
+    
+  }
+ 
+  .logo {
+   height: 100%;
   }
 
    .reviews-list {

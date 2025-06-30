@@ -9,7 +9,7 @@
       <input type="hidden" name="cartData" id="cartDataField">
 
       <!-- STEP 1: Product Selection -->
-      <div class="form-step active" id="step1">
+      <!-- <div class="form-step active" id="step1">
         <div class="form-header">
           <h2>1. Choose a Product</h2>
         </div>
@@ -17,7 +17,42 @@
         <label><input type="radio" name="productType" value="glass"> Glass Sliding Walls</label><br/>
         <label><input type="radio" name="productType" value="other"> Other</label><br/>
         <button type="button" class="button primary" onclick="nextStep()">Next</button>
+      </div> -->
+
+        <!-- STEP 1: Product Selection -->
+      <div class="form-step active" id="step1">
+        <div class="form-header">
+          <h2>1. Choose a Product</h2>
+        </div>
+
+        <div class="product-choice">
+          <label class="product-card">
+            <input type="radio" name="productType" value="veranda" required>
+            <div class="card-content">
+              <div class="card-text">Aluminium Veranda</div>
+              <img src="/img/veranda-thumb.jpg" alt="Aluminium Veranda">
+            </div>
+          </label>
+
+          <label class="product-card">
+            <input type="radio" name="productType" value="glass">
+            <div class="card-content">
+              <div class="card-text">Glass Sliding Walls</div>
+              <img src="/img/glass-thumb.jpg" alt="Glass Sliding Walls">
+            </div>
+          </label>
+
+          <label class="product-card">
+            <input type="radio" name="productType" value="other">
+            <div class="card-content">
+              <div class="card-text">Other</div>
+              <img src="/img/other-thumb.jpg" alt="Other">
+            </div>
+          </label>
+        </div>
+        <button type="button" class="button primary" onclick="nextStep()">Next</button>
       </div>
+
 
       <!-- STEP 2: Product Configuration (conditional) -->
       <div class="form-step" id="step2">
@@ -58,45 +93,206 @@
               <option value="450cm">450 cm</option>
               <option value="500cm">500 cm</option>
             </select>
-
-             <!-- Color -->
+            
+            <!-- Color -->
             <label class="section-label">Color</label>
-            <label><input type="radio" name="color" value="Black" required> Black</label><br/>
-            <label><input type="radio" name="color" value="White"> White</label><br/>
-            <label><input type="radio" name="color" value="Anthracite"> Anthracite</label>
 
+            <label class="radio-card">
+              <input type="radio" name="color" value="Black" required>
+              <div class="card-content">
+                <div class="card-text">Black</div>
+                <img src="/icons/color_black.png" alt="Black color">
+              </div>
+            </label>
+
+            <label class="radio-card">
+              <input type="radio" name="color" value="White">
+              <div class="card-content">
+                <div class="card-text">White</div>
+                <img src="/icons/color_white.png" alt="White color">
+              </div>
+            </label>
+
+            <label class="radio-card">
+              <input type="radio" name="color" value="Anthracite">
+              <div class="card-content">
+                <div class="card-text">Anthracite</div>
+                <img src="/icons/color_anthracite.png" alt="Anthracite color">
+              </div>
+            </label>
+
+            <!-- Ceiling -->
             <label class="section-label">Ceiling</label>
-            <label><input type="radio" name="ceiling" value="Policarbon Bright" required> Policarbon Bright</label><br/>
-            <label><input type="radio" name="ceiling" value="Policarbon Shaded"> Policarbon Shaded</label><br/>
-            <label><input type="radio" name="ceiling" value="Glass"> Glass</label>
 
+            <label class="radio-card">
+              <input type="radio" name="ceiling" value="Policarbon Bright" required>
+              <div class="card-content">
+                <div class="card-text">Policarbon Bright</div>
+                <img src="/icons/ceiling_bright.png" alt="Policarbon Bright">
+              </div>
+            </label>
+
+            <label class="radio-card">
+              <input type="radio" name="ceiling" value="Policarbon Shaded">
+              <div class="card-content">
+                <div class="card-text">Policarbon Shaded</div>
+                <img src="/icons/ceiling_shaded.png" alt="Policarbon Shaded">
+              </div>
+            </label>
+
+            <label class="radio-card">
+              <input type="radio" name="ceiling" value="Glass">
+              <div class="card-content">
+                <div class="card-text">Glass</div>
+                <img src="/icons/ceiling_glass.png" alt="Glass">
+              </div>
+            </label>            
+
+            <!-- Front Side -->
             <label class="section-label">Front Side</label>
-            <label><input type="radio" name="frontside" value="Glass Sliding Door" > Glass Sliding Walls</label><br/>
-            <label><input type="radio" name="frontside" value="Locked Glass Systems"> Locked Glass Systems</label>
 
+            <label class="radio-card">
+              <input type="radio" name="frontside" value="Glass Sliding Walls">
+              <div class="card-content">
+                <div class="card-text">Glass Sliding Walls</div>
+                <img src="/icons/front_glass.png" alt="Glass Sliding Walls">
+              </div>
+            </label>
+
+            <label class="radio-card">
+              <input type="radio" name="frontside" value="Locked Glass Systems">
+              <div class="card-content">
+                <div class="card-text">Locked Glass Systems</div>
+                <img src="/icons/front_locked.png" alt="Locked Glass Systems">
+              </div>
+            </label>            
+             
+            <!-- Left Side -->
             <label class="section-label">Left Side</label>
-            <label><input type="radio" name="leftside" value="Sandwich Panel" > Sandwich Panel</label><br/>
-            <label><input type="radio" name="leftside" value="Glass"> Glass</label><br/>
-            <label><input type="radio" name="leftside" value="Policarbon"> Policarbon</label>
 
+            <label class="radio-card">
+              <input type="radio" name="leftside" value="Sandwich Panel">
+              <div class="card-content">
+                <div class="card-text">Sandwich Panel</div>
+                <img src="/icons/side_sandwich.png" alt="Sandwich Panel">
+              </div>
+            </label>
+
+            <label class="radio-card">
+              <input type="radio" name="leftside" value="Glass">
+              <div class="card-content">
+                <div class="card-text">Glass</div>
+                <img src="/icons/side_glass.png" alt="Glass">
+              </div>
+            </label>
+
+            <label class="radio-card">
+              <input type="radio" name="leftside" value="Policarbon">
+              <div class="card-content">
+                <div class="card-text">Policarbon</div>
+                <img src="/icons/side_policarbon.png" alt="Policarbon">
+              </div>
+            </label>
+          
+            <!-- Right Side -->
             <label class="section-label">Right Side</label>
-            <label><input type="radio" name="rightside" value="Sandwich Panel" > Sandwich Panel</label><br/>
-            <label><input type="radio" name="rightside" value="Glass"> Glass</label><br/>
-            <label><input type="radio" name="rightside" value="Policarbon"> Policarbon</label>
 
+            <label class="radio-card">
+              <input type="radio" name="rightside" value="Sandwich Panel">
+              <div class="card-content">
+                <div class="card-text">Sandwich Panel</div>
+                <img src="/icons/side_sandwich.png" alt="Sandwich Panel">
+              </div>
+            </label>
+
+            <label class="radio-card">
+              <input type="radio" name="rightside" value="Glass">
+              <div class="card-content">
+                <div class="card-text">Glass</div>
+                <img src="/icons/side_glass.png" alt="Glass">
+              </div>
+            </label>
+
+            <label class="radio-card">
+              <input type="radio" name="rightside" value="Policarbon">
+              <div class="card-content">
+                <div class="card-text">Policarbon</div>
+                <img src="/icons/side_policarbon.png" alt="Policarbon">
+              </div>
+            </label>
+                        
+            <!-- Spie Left Side -->
             <label class="section-label">Spie Left Side</label>
-            <label><input type="radio" name="spieLeft" value="Policarbon" > Policarbon</label><br/>
-            <label><input type="radio" name="spieLeft" value="Sandwich Panel"> Sandwich Panel</label><br/>
-            <label><input type="radio" name="spieLeft" value="Spie Glass"> Spie Glass</label>
 
+            <label class="radio-card">
+              <input type="radio" name="spieLeft" value="Policarbon">
+              <div class="card-content">
+                <div class="card-text">Policarbon</div>
+                <img src="/icons/spie_policarbon.png" alt="Policarbon">
+              </div>
+            </label>
+
+            <label class="radio-card">
+              <input type="radio" name="spieLeft" value="Sandwich Panel">
+              <div class="card-content">
+                <div class="card-text">Sandwich Panel</div>
+                <img src="/icons/spie_sandwich.png" alt="Sandwich Panel">
+              </div>
+            </label>
+
+            <label class="radio-card">
+              <input type="radio" name="spieLeft" value="Spie Glass">
+              <div class="card-content">
+                <div class="card-text">Spie Glass</div>
+                <img src="/icons/spie_glass.png" alt="Spie Glass">
+              </div>
+            </label>
+
+            <!-- Spie Right Side -->
             <label class="section-label">Spie Right Side</label>
-            <label><input type="radio" name="spieRight" value="Policarbon" > Policarbon</label><br/>
-            <label><input type="radio" name="spieRight" value="Sandwich Panel"> Sandwich Panel</label><br/>
-            <label><input type="radio" name="spieRight" value="Spie Glass"> Spie Glass</label>
 
+            <label class="radio-card">
+              <input type="radio" name="spieRight" value="Policarbon">
+              <div class="card-content">
+                <div class="card-text">Policarbon</div>
+                <img src="/icons/spie_policarbon.png" alt="Policarbon">
+              </div>
+            </label>
+
+            <label class="radio-card">
+              <input type="radio" name="spieRight" value="Sandwich Panel">
+              <div class="card-content">
+                <div class="card-text">Sandwich Panel</div>
+                <img src="/icons/spie_sandwich.png" alt="Sandwich Panel">
+              </div>
+            </label>
+
+            <label class="radio-card">
+              <input type="radio" name="spieRight" value="Spie Glass">
+              <div class="card-content">
+                <div class="card-text">Spie Glass</div>
+                <img src="/icons/spie_glass.png" alt="Spie Glass">
+              </div>
+            </label>
+
+            <!-- Lighting -->
             <label class="section-label">Lighting</label>
-            <label><input type="radio" name="lighting" value="LED Inbouwspots" > LED Inbouwspots</label><br/>
-            <label><input type="radio" name="lighting" value="LED Lighting with Dimbaar"> LED Lighting with Dimbaar</label>
+
+            <label class="radio-card">
+              <input type="radio" name="lighting" value="LED Inbouwspots">
+              <div class="card-content">
+                <div class="card-text">LED Inbouwspots</div>
+                <img src="/icons/lighting_spots.png" alt="LED Inbouwspots">
+              </div>
+            </label>
+
+            <label class="radio-card">
+              <input type="radio" name="lighting" value="LED Lighting with Dimbaar">
+              <div class="card-content">
+                <div class="card-text">LED Lighting with Dimbaar</div>
+                <img src="/icons/lighting_dim.png" alt="LED Lighting with Dimbaar">
+              </div>
+            </label>
 
         </div>
 
