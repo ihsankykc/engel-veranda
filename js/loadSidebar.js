@@ -7,6 +7,107 @@ function initOfferSidebar() {
   let currentStep = 0;
   let selectedProduct = null;
   let cart = [];
+
+    const translations = {
+      nl: {
+        "Black": "Zwart",
+        "White": "Wit",
+        "Anthracite": "Antraciet",
+        "Policarbon Bright": "Polycarbonaat helder",
+        "Policarbon Shaded": "Polycarbonaat opaal",
+        "Glass": "Glas",
+        "LED Inbouwspots": "LED inbouwspots",
+        "LED Lighting with Dimbaar": "LED dimbare verlichting",
+        "Other": "Overig",
+        "Glass Sliding Walls": "Glazen schuifwanden",
+        "Locked Glass Systems": "Gesloten glassystemen",
+        "Double Glazing": "Dubbel glas"
+      },
+      de: {
+        "Black": "Schwarz",
+        "White": "Weiß",
+        "Anthracite": "Anthrazit",
+        "Policarbon Bright": "Klarer Polycarbonat",
+        "Policarbon Shaded": "Opales Polycarbonat",
+        "Glass": "Glas",
+        "LED Inbouwspots": "LED Einbauspots",
+        "LED Lighting with Dimbaar": "Dimmbare LED Beleuchtung",
+        "Other": "Sonstiges",
+        "Glass Sliding Walls": "Glasschiebewände",
+        "Locked Glass Systems": "Verschlossene Glassysteme",
+        "Double Glazing": "Doppelverglasung"
+      },
+      tr: {
+        "Black": "Siyah",
+        "White": "Beyaz",
+        "Anthracite": "Antrasit",
+        "Policarbon Bright": "Şeffaf Polikarbon",
+        "Policarbon Shaded": "Opal Polikarbon",
+        "Glass": "Cam",
+        "LED Inbouwspots": "LED gömme spot",
+        "LED Lighting with Dimbaar": "Dimlenebilir LED Aydınlatma",
+        "Other": "Diğer",
+        "Glass Sliding Walls": "Cam sürgülü duvarlar",
+        "Locked Glass Systems": "Kilitli cam sistemleri",
+        "Double Glazing": "Çift cam"
+      }
+    };
+
+    const keyTranslations = {
+    nl: {
+      verandaType: "Verandatype",
+      width: "Breedte",
+      depth: "Diepte",
+      color: "Kleur",
+      ceiling: "Dak",
+      frontside: "Voorkant",
+      leftside: "Linkerkant",
+      rightside: "Rechterkant",
+      spieLeft: "Linker Spie",
+      spieRight: "Rechter Spie",
+      lighting: "Verlichting",
+      glassType: "Type glas",
+      glassWidth: "Glasbreedte",
+      customMessage: "Bericht",
+      photos: "Foto's"
+    },
+    de: {
+      verandaType: "Verandatyp",
+      width: "Breite",
+      depth: "Tiefe",
+      color: "Farbe",
+      ceiling: "Dach",
+      frontside: "Vorderseite",
+      leftside: "Linke Seite",
+      rightside: "Rechte Seite",
+      spieLeft: "Linke Spie",
+      spieRight: "Rechte Spie",
+      lighting: "Beleuchtung",
+      glassType: "Glasart",
+      glassWidth: "Glasbreite",
+      customMessage: "Nachricht",
+      photos: "Fotos"
+    },
+    tr: {
+      verandaType: "Veranda Tipi",
+      width: "Genişlik",
+      depth: "Derinlik",
+      color: "Renk",
+      ceiling: "Tavan",
+      frontside: "Ön Taraf",
+      leftside: "Sol Taraf",
+      rightside: "Sağ Taraf",
+      spieLeft: "Sol Spie",
+      spieRight: "Sağ Spie",
+      lighting: "Aydınlatma",
+      glassType: "Cam Türü",
+      glassWidth: "Cam Genişliği",
+      customMessage: "Mesajınız",
+      photos: "Fotoğraflar"
+    }
+  };
+
+
   
   function disableHiddenFields() {
     document.querySelectorAll(".conditional").forEach(section => {
@@ -104,48 +205,73 @@ inputs.forEach(el => {
     if (currentStep > 0) showStep(currentStep - 1);
   }
 
-  function renderCartSummary() {
+function renderCartSummary() {
   const summary = document.getElementById("summary");
   summary.innerHTML = "";
 
+  // get page language, fallback to en
+  const lang = document.documentElement.lang || "en";
+
   if (cart.length === 0) {
-    summary.innerHTML = "<p>No products in cart.</p>";
+    summary.innerHTML = "<p>Er zijn nog geen producten toegevoegd.</p>";
     return;
   }
 
   cart.forEach((item, index) => {
     const container = document.createElement("div");
+    container.classList.add("cart-item");
     container.innerHTML = `
       <h4>Item ${index + 1}</h4>
-      <ul style="margin-left:1em;"></ul>
-      <button onclick="removeCartItem(${index})" style="
+      <ul></ul>
+      <button class="button small" onclick="removeCartItem(${index})" style="
         margin-top: 0.5em;
-        font-size: 0.8rem;
         background: #dc3545;
-        color: white;
-        border: none;
-        padding: 0.4em 0.8em;
-        border-radius: 4px;
-        cursor: pointer;
-      ">Remove</button>
+      ">🗑 ${
+        lang === "nl"
+          ? "Verwijderen"
+          : lang === "de"
+          ? "Entfernen"
+          : lang === "tr"
+          ? "Sil"
+          : "Remove"
+      }</button>
     `;
+
     const ul = container.querySelector("ul");
 
     for (const key in item) {
-      if (["name", "email", "phone", "address", "form-name", "bot-field"].includes(key)) continue;
+      if (
+        ["name", "email", "phone", "address", "form-name", "bot-field"].includes(
+          key
+        )
+      )
+        continue;
+
+      let display = "";
       const value = item[key];
-      const display = value instanceof FileList
-        ? [...value].map(f => f.name).join(", ")
-        : Array.isArray(value) ? value.join(", ") : value;
+      if (value instanceof FileList) {
+        display = [...value].map((f) => f.name).join(", ");
+      } else if (Array.isArray(value)) {
+        display = value.join(", ");
+      } else {
+        display = value;
+      }
+
+      // translation lookup
+      const translated =
+        translations[lang] && translations[lang][display]
+          ? translations[lang][display]
+          : display;
+
       const li = document.createElement("li");
-      li.innerHTML = `<strong>${key}</strong>: ${display}`;
+      const translatedKey = (keyTranslations[lang] && keyTranslations[lang][key]) || key;
+      li.innerHTML = `<strong>${translatedKey}</strong>: ${translated}`;
       ul.appendChild(li);
     }
 
     summary.appendChild(container);
   });
 }
- 
 
 
   function showConfigOptions(productType) {
@@ -213,20 +339,32 @@ inputs.forEach(el => {
 // Dynamically load the sidebar
 document.addEventListener("DOMContentLoaded", function () {
   const sidebarTarget = document.getElementById("sidebarContainer");
-  console.log("🔄 Fetching sidebar...");
 
-  fetch("/components/offerSidebar.html")
+  // get <html lang="..."> or default to "en"
+  const htmlLang = document.documentElement.lang || "en";
+
+  // list of supported languages
+  const supportedLangs = ["en", "nl", "de", "tr"];
+  
+  // fallback if the language is unsupported
+  const lang = supportedLangs.includes(htmlLang) ? htmlLang : "en";
+
+  const sidebarFile = `/components/offerSidebar.${lang}.html`;
+
+  console.log(`🔄 Fetching sidebar for language: ${lang}`);
+
+  fetch(sidebarFile)
     .then(response => {
-      console.log("✅ Sidebar file fetched");
+      if (!response.ok) throw new Error(`Failed to load ${sidebarFile}`);
       return response.text();
     })
     .then(html => {
       sidebarTarget.innerHTML = html;
-      console.log("✅ Sidebar inserted into DOM");
+      console.log(`✅ Sidebar for ${lang} inserted into DOM`);
       initOfferSidebar();
       console.log("✅ initOfferSidebar() called");
     })
     .catch(err => {
-      console.error("❌ Failed to load offerSidebar.html", err);
+      console.error(`❌ Failed to load ${sidebarFile}`, err);
     });
 });

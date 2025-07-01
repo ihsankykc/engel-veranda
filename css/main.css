@@ -935,3 +935,43 @@ input[type="file"] {
   color: #000 !important;
   background-color: #fff !important;
 }
+
+.cart-item {
+  background: #ffffff;
+  color: var(--text-color);
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.cart-item h4 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  color: var(--primary-color);
+}
+
+.cart-item ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.cart-item ul li {
+  margin-bottom: 0.4rem;
+}
+
+.cart-item button {
+  margin-top: 0.5rem;
+}
+
+.form-header h2 {
+  font-size: 1.8rem;
+  text-align: center;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  background-color: #EAD7B7;
+}

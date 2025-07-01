@@ -11,7 +11,7 @@
         <!-- STEP 1: Product Selection -->
       <div class="form-step active" id="step1">
         <div class="form-header">
-          <h2>1. Choose Your Product</h2>
+          <h2>1. Kies uw product</h2>
         </div>
 
         <div class="product-choice">
@@ -26,7 +26,7 @@
           <label class="product-card">
             <input type="radio" name="productType" value="glass">
             <div class="card-content">
-              <div class="card-text">Glass Sliding Walls</div>
+              <div class="card-text">Glazen schuifwanden</div>
               <img src="/img/glass-thumb.jpg" alt="Glass Sliding Walls">
             </div>
           </label>
@@ -34,23 +34,23 @@
           <label class="product-card">
             <input type="radio" name="productType" value="other">
             <div class="card-content">
-              <div class="card-text">Other</div>
+              <div class="card-text">Overig</div>
               <img src="/img/other-thumb.jpg" alt="Other">
             </div>
           </label>
         </div>
-        <button type="button" class="button primary" onclick="nextStep()">Next</button>
+        <button type="button" class="button primary" onclick="nextStep()">Volgende</button>
       </div>
 
 
       <!-- STEP 2: Product Configuration (conditional) -->
       <div class="form-step" id="step2">
         <div class="form-header">
-          <h2>2. Configure Your Product</h2>
+          <h2>2. Stel uw product samen</h2>
         </div>
 
         <div id="verandaOptions" class="conditional hidden form-section">
-          <label>Veranda Type</label>
+          <label>Type veranda</label>
           <select name="verandaType">
             <option value="optimum">Optimum</option>
             <option value="premium">Premium</option>
@@ -58,7 +58,7 @@
           </select>
           
           <!-- Wideness -->
-             <label class="section-label">Width</label>
+             <label class="section-label">Breedte</label>
             <select name="width" required>
               <option value="<300cm">&lt;300 cm</option>
               <option value="300–400cm">300–400 cm</option>
@@ -73,7 +73,7 @@
             </select>
 
            <!-- Depth -->
-            <label class="section-label">Depth</label>
+            <label class="section-label">Diepte</label>
             <select name="depth" required>
               <option value="250cm">250 cm</option>
               <option value="300cm">300 cm</option>
@@ -84,12 +84,12 @@
             </select>
             
             <!-- Color -->
-            <label class="section-label">Color</label>
+            <label class="section-label">Kleur</label>
 
             <label class="radio-card">
               <input type="radio" name="color" value="Black" required>
               <div class="card-content">
-                <div class="card-text">Black</div>
+                <div class="card-text">Zwart</div>
                 <img src="/icons/color_black.png" alt="Black color">
               </div>
             </label>
@@ -97,7 +97,7 @@
             <label class="radio-card">
               <input type="radio" name="color" value="White">
               <div class="card-content">
-                <div class="card-text">White</div>
+                <div class="card-text">Wit</div>
                 <img src="/icons/color_white.png" alt="White color">
               </div>
             </label>
@@ -105,18 +105,18 @@
             <label class="radio-card">
               <input type="radio" name="color" value="Anthracite">
               <div class="card-content">
-                <div class="card-text">Anthracite</div>
+                <div class="card-text">Antraciet</div>
                 <img src="/icons/color_anthracite.png" alt="Anthracite color">
               </div>
             </label>
 
             <!-- Ceiling -->
-            <label class="section-label">Ceiling</label>
+            <label class="section-label">Dak</label>
 
             <label class="radio-card">
               <input type="radio" name="ceiling" value="Policarbon Bright" required>
               <div class="card-content">
-                <div class="card-text">Policarbon Clear</div>
+                <div class="card-text">Polycarbonaat helder</div>
                 <img src="/icons/ceiling_bright.png" alt="Policarbon Bright">
               </div>
             </label>
@@ -124,7 +124,7 @@
             <label class="radio-card">
               <input type="radio" name="ceiling" value="Policarbon Shaded">
               <div class="card-content">
-                <div class="card-text">Policarbon Opal</div>
+                <div class="card-text">Polycarbonaat opaal</div>
                 <img src="/icons/ceiling_bright.png" alt="Policarbon Shaded">
               </div>
             </label>
@@ -132,18 +132,18 @@
             <label class="radio-card">
               <input type="radio" name="ceiling" value="Glass">
               <div class="card-content">
-                <div class="card-text">Glass</div>
+                <div class="card-text">Glas</div>
                 <img src="/icons/ceiling_glass.png" alt="Glass">
               </div>
             </label>            
 
             <!-- Front Side -->
-            <label class="section-label">Front Side</label>
+            <label class="section-label">Voorkant</label>
 
             <label class="radio-card">
               <input type="radio" name="frontside" value="Glass Sliding Walls">
               <div class="card-content">
-                <div class="card-text">Glass Sliding Walls</div>
+                <div class="card-text">Glazen schuifwanden</div>
                 <img src="/icons/front_glass.png" alt="Glass Sliding Walls">
               </div>
             </label>
@@ -151,18 +151,18 @@
             <label class="radio-card">
               <input type="radio" name="frontside" value="Locked Glass Systems">
               <div class="card-content">
-                <div class="card-text">Locked Glass Systems</div>
+                <div class="card-text">Gesloten glassystemen</div>
                 <img src="/icons/front_locked.png" alt="Locked Glass Systems">
               </div>
             </label>            
              
             <!-- Left Side -->
-            <label class="section-label">Left Side</label>
+            <label class="section-label">Linkerzijde</label>
 
             <label class="radio-card">
               <input type="radio" name="leftside" value="Sandwich Panel">
               <div class="card-content">
-                <div class="card-text">Sandwich Panel</div>
+                <div class="card-text">Sandwichpaneel</div>
                 <img src="/icons/side_sandwich.png" alt="Sandwich Panel">
               </div>
             </label>
@@ -170,7 +170,7 @@
             <label class="radio-card">
               <input type="radio" name="leftside" value="Glass">
               <div class="card-content">
-                <div class="card-text">Glass</div>
+                <div class="card-text">Glas</div>
                 <img src="/icons/side_glass.png" alt="Glass">
               </div>
             </label>
@@ -178,18 +178,18 @@
             <label class="radio-card">
               <input type="radio" name="leftside" value="Policarbon">
               <div class="card-content">
-                <div class="card-text">Policarbon</div>
+                <div class="card-text">Polycarbonaat</div>
                 <img src="/icons/side_policarbon.png" alt="Policarbon">
               </div>
             </label>
           
             <!-- Right Side -->
-            <label class="section-label">Right Side</label>
+            <label class="section-label">Rechterzijde</label>
 
             <label class="radio-card">
               <input type="radio" name="rightside" value="Sandwich Panel">
               <div class="card-content">
-                <div class="card-text">Sandwich Panel</div>
+                <div class="card-text">Sandwichpaneel</div>
                 <img src="/icons/side_sandwich.png" alt="Sandwich Panel">
               </div>
             </label>
@@ -197,7 +197,7 @@
             <label class="radio-card">
               <input type="radio" name="rightside" value="Glass">
               <div class="card-content">
-                <div class="card-text">Glass</div>
+                <div class="card-text">Glas</div>
                 <img src="/icons/side_glass.png" alt="Glass">
               </div>
             </label>
@@ -205,18 +205,18 @@
             <label class="radio-card">
               <input type="radio" name="rightside" value="Policarbon">
               <div class="card-content">
-                <div class="card-text">Policarbon</div>
+                <div class="card-text">Polycarbonaat</div>
                 <img src="/icons/side_policarbon.png" alt="Policarbon">
               </div>
             </label>
                         
             <!-- Spie Left Side -->
-            <label class="section-label">Spie Left Side</label>
+            <label class="section-label">Spie linkerzijde</label>
 
             <label class="radio-card">
               <input type="radio" name="spieLeft" value="Policarbon">
               <div class="card-content">
-                <div class="card-text">Policarbon</div>
+                <div class="card-text">Polycarbonaat</div>
                 <img src="/icons/spie_policarbon.png" alt="Policarbon">
               </div>
             </label>
@@ -224,7 +224,7 @@
             <label class="radio-card">
               <input type="radio" name="spieLeft" value="Sandwich Panel">
               <div class="card-content">
-                <div class="card-text">Sandwich Panel</div>
+                <div class="card-text">Sandwichpaneel</div>
                 <img src="/icons/spie_sandwich.png" alt="Sandwich Panel">
               </div>
             </label>
@@ -238,12 +238,12 @@
             </label>
 
             <!-- Spie Right Side -->
-            <label class="section-label">Spie Right Side</label>
+            <label class="section-label">Spie rechterzijde</label>
 
             <label class="radio-card">
               <input type="radio" name="spieRight" value="Policarbon">
               <div class="card-content">
-                <div class="card-text">Policarbon</div>
+                <div class="card-text">Polycarbonaat</div>
                 <img src="/icons/spie_policarbon.png" alt="Policarbon">
               </div>
             </label>
@@ -251,7 +251,7 @@
             <label class="radio-card">
               <input type="radio" name="spieRight" value="Sandwich Panel">
               <div class="card-content">
-                <div class="card-text">Sandwich Panel</div>
+                <div class="card-text">Sandwichpaneel</div>
                 <img src="/icons/spie_sandwich.png" alt="Sandwich Panel">
               </div>
             </label>
@@ -259,13 +259,13 @@
             <label class="radio-card">
               <input type="radio" name="spieRight" value="Spie Glass">
               <div class="card-content">
-                <div class="card-text">Spie Glass</div>
+                <div class="card-text">Glas spie</div>
                 <img src="/icons/spie_glass.png" alt="Spie Glass">
               </div>
             </label>
 
             <!-- Lighting -->
-            <label class="section-label">Lighting</label>
+            <label class="section-label">Verlichting</label>
 
             <label class="radio-card">
               <input type="radio" name="lighting" value="LED Inbouwspots">
@@ -278,7 +278,7 @@
             <label class="radio-card">
               <input type="radio" name="lighting" value="LED Lighting with Dimbaar">
               <div class="card-content">
-                <div class="card-text">LED Lighting with Dimbaar</div>
+                <div class="card-text">LED dimbare verlichting</div>
                 <img src="/icons/lighting_spots.jpg" alt="LED Lighting with Dimbaar">
               </div>
             </label>
@@ -287,32 +287,32 @@
 
        <!-- Glass Options -->
          <div id="glassOptions" class="conditional hidden form-section">
-          <label class="section-label">Type of Glass</label>
+          <label class="section-label">Type glas</label>
           <label class="radio-card">
             <input type="radio" name="glassType" value="Clear" required>
             <div class="card-content">
-              <div class="card-text">Clear Glass</div>
+              <div class="card-text">Helder glas</div>
               <img src="/icons/glass_clear.jpg" alt="Clear Glass">
             </div>
           </label>          
           <label class="radio-card">
             <input type="radio" name="glassType" value="Tinted">
             <div class="card-content">
-              <div class="card-text">Tinted Glass</div>
+              <div class="card-text">Getint glas</div>
               <img src="/icons/glass_tinted.jpg" alt="Tinted Glass">
             </div>
           </label>
           <label class="radio-card">
           <input type="radio" name="glassType" value="Opal">
             <div class="card-content">
-              <div class="card-text">Opal Glass</div>
+              <div class="card-text">Opaal glas</div>
               <img src="/icons/glass_opal.jpg" alt="Opal Glass">
             </div>
           </label>
           <label class="radio-card">
           <input type="radio" name="glassType" value="Double Glazing">
             <div class="card-content">
-              <div class="card-text">Double Glazing</div>
+              <div class="card-text">Dubbel glas</div>
               <img src="/icons/glass_double.jpg" alt="Double Glazing">
             </div>
           </label>
@@ -334,15 +334,15 @@
          <div id="otherOptions" class="conditional hidden form-section">...</div>
  
           <div class="shared-options">
-            <label>Describe your request</label>
+            <label>Beschrijf uw aanvraag</label>
             <textarea name="customMessage"></textarea>
 
-            <label>Upload Images</label>
+            <label>Afbeeldingen uploaden</label>
             <input type="file" name="photos" multiple><br/><br/>
           </div>
 
-        <button type="button" class="button primary" onclick="prevStep()">Back</button>
-        <button type="button" class="button primary" onclick="nextStep()">Next</button>
+        <button type="button" class="button primary" onclick="prevStep()">Terug</button>
+        <button type="button" class="button primary" onclick="nextStep()">Volgende</button>
       </div>
 
       
@@ -350,26 +350,26 @@
       <!-- STEP 3: Cart Summary -->
       <div class="form-step" id="step3">
         <div class="form-header">
-          <h2>3. Review Your Cart</h2>
+          <h2>3. Controleer uw offerte</h2>
         </div>
         <div id="summary"></div>
-        <button type="button" class="button primary" onclick="prevStep()">Back</button>
-        <button type="button" class="button primary" onclick="nextStep()">Next</button>
+        <button type="button" class="button primary" onclick="prevStep()">Terug</button>
+        <button type="button" class="button primary" onclick="nextStep()">Volgende</button>
       </div>
 
       <!-- STEP 4: Contact Info -->
     <div class="form-step" id="step4">
       <div class="form-header">
-        <h2>4. Contact Information</h2>
+        <h2>4. Contactgegevens</h2>
       </div>
 
-      <label>Name</label>
+      <label>Naam</label>
       <input type="text" name="name" required>
 
       <label>Email</label>
       <input type="email" name="email" required>
 
-      <label>Phone</label>
+      <label>Telefoon</label>
       <div style="display: flex; gap: 0.5em;">
         <select name="countryCode" required style="max-width: 110px;">
           <option value="+31">🇳🇱 +31 (NL)</option>
@@ -381,30 +381,30 @@
         <input type="tel" name="phone" placeholder="612345678" required style="flex: 1;">
       </div>
 
-      <label>Country</label>
+      <label>Land</label>
       <select name="addressCountry" required>
-        <option value="Netherlands">Netherlands</option>
-        <option value="Belgium">Belgium</option>
-        <option value="Germany">Germany</option>
-        <option value="France">France</option>
-        <option value="Other">Other</option>
+        <option value="Netherlands">Nederland</option>
+        <option value="Belgium">België</option>
+        <option value="Germany">Duitsland</option>
+        <option value="France">Frankrijk</option>
+        <option value="Other">Anders</option>
       </select>
 
       <label>Postcode</label>
       <input type="text" name="postcode" required>
 
-      <label>House Number</label>
+      <label>Huisnummer</label>
       <input type="text" name="houseNumber" required>
 
-      <label>Street</label>
+      <label>Straat</label>
       <input type="text" name="street" required>
 
-      <label>City</label>
+      <label>Stad</label>
       <input type="text" name="city" required>
 
       <div class="form-nav">
-        <button type="button" class="button primary" onclick="prevStep()">Back</button>
-        <button type="submit" class="button primary">Submit</button>
+        <button type="button" class="button primary" onclick="prevStep()">Terug</button>
+        <button type="submit" class="button primary">Verzenden</button>
       </div>
     </div>
 
