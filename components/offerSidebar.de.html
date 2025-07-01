@@ -4,8 +4,9 @@
     <button id="cartJumpBtn" title="View Cart">🛒</button>
     <button id="closeOfferBtn">✕</button>
     
-    <form name="offer" method="POST" data-netlify="true" data-netlify-recaptcha="true" enctype="multipart/form-data">
+    <form name="offer" method="POST" data-netlify="true" enctype="multipart/form-data" netlify-honeypot="bot-field">
       <input type="hidden" name="form-name" value="offer">
+      <input type="text" name="bot-field" style="display:none">
       <input type="hidden" name="cartData" id="cartDataField">
 
         <!-- STEP 1: Product Selection -->
@@ -404,10 +405,10 @@
 
       
       <div class="form-nav">
-        <div data-netlify-recaptcha="true"></div>
           <button type="button" class="button primary" onclick="prevStep()">Zurück</button>
           <button type="submit" class="button primary">Absenden</button>
       </div>
+    
     </div>
 
     </form>
